@@ -41,7 +41,7 @@ html,body {
 }
 #MyVue {
     height: 100%;
-    background-color: #f2f2f2;
+    background-color: #999;
 }
 #MyVue .menu {
     width: 1200px;
