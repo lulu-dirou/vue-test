@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    aaaaaaaaaaaaaaaaaaaaaaa
+    work
   </div>
 </template>
-
 

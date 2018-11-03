@@ -11,6 +11,7 @@
         <base-button></base-button>
       </div> 
       <base-test></base-test>
+      <router-view></router-view>
     </div>
   </div>
 </template>
@@ -26,11 +27,10 @@ import BaseTest from './components/BaseTest.vue'
 export default {
   name: 'MyVue',
   components: {
-    TheHead,
-    TheMenu,
-    BaseButton, 
-    BaseTest, 
-
+    'the-head':TheHead,
+    'the-menu':TheMenu,
+    'base-button':BaseButton, 
+    'base-test':BaseTest
   }
 }
 </script>

@@ -1,12 +1,12 @@
 <template>
     <div id="TheMenu">
         <ul class="lu-flex">
-            <!-- <li v-bind:class="classObj">首页</li>
-            <li v-bind:class="classObj">222</li>
-            <li v-bind:class="classObj">333</li>
-            <li v-bind:class="classObj">44</li>
-            <li v-bind:class="classObj">555</li> -->
-            <li v-for="nav in navs" v-bind:class="classObj" v-bind:key="nav.id">{{ nav.title }}</li>
+            <!-- <li v-for="nav in navs" v-bind:class="classObj" v-bind:key="nav.id">{{ nav.title }}</li> -->
+          <li><router-link to="/home">home</router-link></li>
+          <li><router-link to="/appeal">appeal</router-link></li>
+          <li><router-link to="/declare">declare</router-link></li>
+          <li><router-link to="/policy">policy</router-link></li>
+          <li><router-link to="/message">message</router-link></li>
         </ul>
     </div>
 </template>
@@ -14,29 +14,29 @@
 
 <script >
 export default {
-  name: 'TheMenu',
-  data(){
-    return {
-      navs: [
-        {
-          id:1,
-          title:'index'
-        },
-        {
-          id:2,
-          title:'about'
-        },
-        {
-          id:3,
-          title:'work'
-        },
-        {
-          id:4,
-          title:'member'
-        },
-      ]
-    }
-  }
+  // name: 'TheMenu',
+  // data(){
+  //   return {
+  //     navs: [
+  //       {
+  //         id:1,
+  //         title:'index'
+  //       },
+  //       {
+  //         id:2,
+  //         title:'about'
+  //       },
+  //       {
+  //         id:3,
+  //         title:'work'
+  //       },
+  //       {
+  //         id:4,
+  //         title:'member'
+  //       },
+  //     ]
+  //   }
+  // }
   // data(){
   //   return {
   //     classObj : {
@@ -86,8 +86,15 @@ export default {
   font-size: 15px;
   color: #fff;
 }
-#TheMenu ul li:hover,
-#TheMenu ul li.active {
+#TheMenu li a {
+  font-size: 15px;
+  color: #fff;
+  display: block;
+}
+#TheMenu li a:hover {
+  background-color: rgba(0,0,0,0.2);
+}
+#TheMenu li a.router-link-active {
   cursor: pointer;
   background-color: #0154a4;
 }
