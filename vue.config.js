@@ -14,3 +14,19 @@
 //     }
 //   }
 // }
+
+module.exports = {
+  devServer: {
+    //跨域反向代理,需axios支持
+    proxy: {
+      '/api': {
+        target: 'http://183.237.175.100:8080/GEService/',
+        // secure: false,  // 如果是https接口，需要配置这个参数
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api':''
+        }
+      }
+    }
+  }
+}

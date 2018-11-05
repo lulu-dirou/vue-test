@@ -1,11 +1,11 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/home.vue";
-import Appeal from "./views/appeal/appeal.vue";
-import Declare from "./views/declare/declare.vue";
-import Policy from "./views/policy/policy.vue";
-import Message from "./views/message/message.vue";
-import Member from "./views/member/member.vue";
+import Home from "../views/home.vue";
+import Appeal from "../views/appeal/appeal.vue";
+import Declare from "../views/declare/declare.vue";
+import Policy from "../views/policy/policy.vue";
+import Message from "../views/message/message.vue";
+import Member from "../views/member/member.vue";
 
 Vue.use(Router);
 

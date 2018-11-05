@@ -10,7 +10,6 @@
         <base-button></base-button>
         <base-button></base-button>
       </div> 
-      <base-test></base-test>
       <router-view></router-view>
     </div>
   </div>
@@ -21,7 +20,6 @@ import "./common/myCss.css";
 import TheHead from './components/TheHead.vue'
 import TheMenu from './components/TheMenu.vue'
 import BaseButton from './components/BaseButton.vue'
-import BaseTest from './components/BaseTest.vue'
 
 
 export default {
@@ -29,8 +27,7 @@ export default {
   components: {
     'the-head':TheHead,
     'the-menu':TheMenu,
-    'base-button':BaseButton, 
-    'base-test':BaseTest
+    'base-button':BaseButton
   }
 }
 </script>
