@@ -14,58 +14,6 @@
 
 <script >
 export default {
-  // name: 'TheMenu',
-  // data(){
-  //   return {
-  //     navs: [
-  //       {
-  //         id:1,
-  //         title:'index'
-  //       },
-  //       {
-  //         id:2,
-  //         title:'about'
-  //       },
-  //       {
-  //         id:3,
-  //         title:'work'
-  //       },
-  //       {
-  //         id:4,
-  //         title:'member'
-  //       },
-  //     ]
-  //   }
-  // }
-  // data(){
-  //   return {
-  //     classObj : {
-  //       active : true,
-  //       'text-danger' : true,
-  //     }
-  //   }
-  // },
-  // data(){
-  //   return {
-  //     isActive : true,
-  //     isErr : true
-  //   }
-  // },
-  // computed: {
-  //   classObj : function(){
-  //     return {
-  //       active : this.isActive && !this.isErr ,
-  //       'text-danger' : this.isErr
-  //     }
-  //   }
-  // }
-  // computed: {
-  //   classObject: function () {
-  //     return {
-  //       active: this.isActive,
-  //     }
-  //   }
-  // }
 }
 </script>
 
