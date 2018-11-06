@@ -49,11 +49,46 @@ export default {
 // console.log(error);
 // });
    
-     this.$http.post('/api/qyfwpt/zcfw/listZcfw?pageSize=10&pageNo=1')
-  .then(response => {
-            this.results = response.data.body.list;
-            //console.log(this.results)
-          })
+    // this.$http.get('http://jsonplaceholder.typicode.com/comments',{
+    //   params:{
+    //     postId:1,
+    //     id:1
+    //   }
+    // })
+    // .then(response => {
+    //   this.results = response.data;
+    //   console.log(this.results)
+    //   //console.log(this.results)
+    // })
+
+
+    // this.$http.post('/api/qyfwpt/zcfw/listZcfw?pageSize=10&pageNo=1',{
+    //   params:{
+    //     pageSize:3,
+    //     pageNo:1
+    //   }
+    // })
+    // .then(response => {
+    //   this.results = response.data.body.list;
+    //   console.log('都已经拿到数据了')
+    //   //console.log(this.results)
+    // })
+
+    this.$http.post('/api/qyfwpt/zcfw/listZcfw',
+      this.$qs.stringify({
+        pageSize:3,
+        pageNo:1
+      })
+    )
+    .then(response => {
+      this.results = response.data.body.list;
+      //console.log('都已经拿到数据了')
+      //console.log(this.results)
+    })
+    .catch(function () {
+      window.alert('error！获取数据错误');
+    });
+
 
 
 

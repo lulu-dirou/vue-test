@@ -1,13 +1,14 @@
+import 'babel-polyfill'//转码支持ES6
 import Vue from 'vue'
 import Main from './main.vue'
 import router from './router/index.js'//引入路由
 //import axios from './server/index.js'//引入axios
 
 
- import axios from 'axios'
-// axios.defaults.headers.post['Content-Type']= 'application/x-www-form-urlencoded;charset=UTF-8'
+import axios from 'axios'
+import qs from 'qs'
 Vue.prototype.$http = axios
-
+Vue.prototype.$qs=qs
 
 
 Vue.config.productionTip = false
