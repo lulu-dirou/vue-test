@@ -33,7 +33,7 @@ export default {
     //         console.log(mys)
     //     })
     // }
-    created() {
+    mounted() {
           // this.$http.get("http://jsonplaceholder.typicode.com/users").then(response => {
           //   this.results = response.data;
           //   //console.log(this.results)
@@ -74,21 +74,30 @@ export default {
     //   //console.log(this.results)
     // })
 
-    this.$http.post('/api/qyfwpt/zcfw/listZcfw',
-      this.$qs.stringify({
-        pageSize:3,
-        pageNo:1
-      })
-    )
-    .then(response => {
-      this.results = response.data.body.list;
-      //console.log('都已经拿到数据了')
-      //console.log(this.results)
-    })
-    .catch(function () {
-      window.alert('error！获取数据错误');
-    });
+    // this.$http.post('/api/qyfwpt/zcfw/listZcfw',
+    //   this.$qs.stringify({
+    //     pageSize:3,
+    //     pageNo:1
+    //   })
+    // )
+    // .then(response => {
+    //   this.results = response.data.body.list;
+    //   //console.log('都已经拿到数据了')
+    //   //console.log(this.results)
+    // })
+    // .catch((err) => {
+    //     window.alert(err);
+    // });
 
+
+//获取接口
+
+    this.$http.post(this.$url.zcfw.listZcfw, {
+      pageSize: 10,
+      pageNo: 1,
+    }).then((res) => {
+            this.results = res.data.body.list;
+        })
 
 
 

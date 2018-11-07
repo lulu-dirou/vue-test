@@ -6,9 +6,17 @@ import router from './router/index.js'//引入路由
 
 
 import axios from 'axios'
-import qs from 'qs'
-Vue.prototype.$http = axios
-Vue.prototype.$qs=qs
+//import qs from 'qs'
+//Vue.prototype.$http = axios
+//Vue.prototype.$qs=qs
+
+
+
+import http from './api/http.js'
+import url from './api/url.js'
+Vue.prototype.$http = http
+Vue.prototype.$url = url
+
 
 
 Vue.config.productionTip = false

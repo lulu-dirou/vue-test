@@ -14,7 +14,9 @@
     //安装路由
 
 
-#   vue.config.js  module.exports={devServer:{proxy:{}}}
+#   vue.config.js->module.exports={devServer:{proxy:{}}}
     //跨域反向代理,需axios支持,Vue CLI3 API
 
 
+#   package.json->eslintConfig{rules{"no-console":"off"}}
+    //关闭npm eslint对console的烦人检验错误
