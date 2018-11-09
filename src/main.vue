@@ -4,12 +4,7 @@
     <div class="menu">
       <the-menu></the-menu>
     </div>
-    <div class="content">
-      <div class="btn">
-        <base-button></base-button>
-        <base-button></base-button>
-        <base-button></base-button>
-      </div> 
+    <div class="content"> 
       <router-view></router-view>
     </div>
   </div>
@@ -19,7 +14,6 @@
 import "./common/myCss.css";
 import TheHead from './components/TheHead.vue'
 import TheMenu from './components/TheMenu.vue'
-import BaseButton from './components/BaseButton.vue'
 
 
 export default {
@@ -27,18 +21,12 @@ export default {
   components: {
     'the-head':TheHead,
     'the-menu':TheMenu,
-    'base-button':BaseButton
   }
 }
 </script>
 
 <style>
-html,body {
-    height: 100%;
-}
 #MyVue {
-    height: 100%;
-    background-color: #999;
 }
 #MyVue .menu {
     width: 1200px;
@@ -47,7 +35,7 @@ html,body {
 #MyVue .content {
     width: 1200px;
     height: 100%;
-    margin: 0 auto;
+    margin: 0 auto 20px auto;
     background-color: #fff;
 }
 

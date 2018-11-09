@@ -4,6 +4,7 @@ import Home from "../views/home.vue";
 import Appeal from "../views/appeal/appeal.vue";
 import Declare from "../views/declare/declare.vue";
 import Policy from "../views/policy/policy.vue";
+import policyArticleInfo from "../views/policy/policyArticleInfo";
 import Message from "../views/message/message.vue";
 import Member from "../views/member/member.vue";
 
@@ -26,6 +27,10 @@ export default new Router({
     {
       path: "/policy",
       component: Policy
+    },
+    {
+      path: "/policyArticleInfo",
+      component: policyArticleInfo
     },
     {
       path: "/message",
