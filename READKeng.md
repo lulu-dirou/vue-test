@@ -20,3 +20,7 @@
 
 #   package.json->eslintConfig{rules{"no-console":"off"}}
     //关闭npm eslint对console的烦人检验错误
+
+
+#   props $emit
+	//子接收父数据用props,父接收子方法用$emit

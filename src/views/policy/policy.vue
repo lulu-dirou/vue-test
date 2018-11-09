@@ -4,8 +4,6 @@
     <article-list2 
       hd-title="最新政策" 
       :hd-show="1" 
-      :url-page-size="10" 
-      :url-page-no="1"
     >
     </article-list2>
   </div>

@@ -7,7 +7,7 @@
           <router-link class="lu-flex" v-bind:to="{path:'/policyArticleInfo',query:{id:list.id}}">
             <div class="dot-box"></div>
             <div class="msg-box">
-              <div class="msg-title-max">{{ list.zcly }}</div>
+              <div class="msg-title-max"><span>{{ list.zcly }}</span></div>
               <div class="msg-title">{{ list.zczt }}</div>
               <div class="msg-min lu-flex">
                 <span class="msg-label">{{ list.zcbqname }}</span>
@@ -18,32 +18,54 @@
           </router-link>
         </li>
       </ul>
+      <the-pagination
+        :total = 'UrlTotal'
+        :display = 'UrlPageSize'
+        :currentPage = 'UrlPageNo'
+        @currentPageChange = 'pagechange'
+      >
+      </the-pagination>
     </div>
   </div>
 </template>
 
 
 <script >
+import ThePagination from './ThePagination.vue'
 export default {
-  name : 'ArticleList2',
+  name: 'ArticleList2',
+  components: {
+    ThePagination,
+  },
   props: {
-    HdTitle : String,
-    HdShow : Number,
-    UrlPageSize : Number,
-    UrlPageNo : Number
+    HdTitle:String,
+    HdShow:Number,
   },
   data(){
     return {
-      results:[]
+      UrlTotal: 30,
+      UrlPageSize: 5,
+      UrlPageNo: 1,
+      results: []
+    }
+  },
+  methods: {
+    getApi(){
+      this.$http.post(this.$url.zcfw.listZcfw,{
+        pageSize: this.UrlPageSize,
+        pageNo: this.UrlPageNo
+      }).then((res) => {
+        this.results = res.data.body.list
+      })
+    },
+    pagechange(val){
+      this.UrlPageNo = val;
+      // axios请求, 向后台发送 currentPage, 来获取对应的数据
+      this.getApi();
     }
   },
   mounted(){
-    this.$http.post(this.$url.zcfw.listZcfw,{
-      pageSize: this.UrlPageSize,
-      pageNo: this.UrlPageNo
-    }).then((res) => {
-      this.results = res.data.body.list
-    })
+    this.getApi();
   }
 }
 </script>
@@ -66,14 +88,23 @@ export default {
   border-bottom: 1px solid #eee;
 }
 .ArticleList2 li .dot-box {
+  flex: 0 0 30px;
   margin-right: 10px;
 }
 .ArticleList2 li .msg-box {
   flex: 1;
 }
+.ArticleList2 li .msg-box .msg-title-max {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #999;
+}
+.ArticleList2 li .msg-box .msg-title-max span {
+  padding: 2px 10px;
+  background: rgba(0,0,0,0.05);
+}
 .ArticleList2 li .msg-box .msg-title {
-  margin: 5px 0;
-  font-size: 16px;
+  font-size: 14px;
   color: #666;
 }
 .ArticleList2 li .msg-box .msg-min {
@@ -82,11 +113,8 @@ export default {
   color: #999;
 }
 .ArticleList2 li .msg-box .msg-min .msg-label {
-  border: 1px solid #ff6600;
-  padding: 2px 4px;
   margin-right: 5px;
-  border-radius: 3px;
-  color: #ff6600;
+  color: #6BAEAB;
 }
 .ArticleList2 li .sub-box {
   margin-left: 10px;
