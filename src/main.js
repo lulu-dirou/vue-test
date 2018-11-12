@@ -2,6 +2,7 @@ import 'babel-polyfill'//转码支持ES6
 import Vue from 'vue'
 import Main from './main.vue'
 import router from './router/index.js'//引入路由
+import store from './store/index.js'//引入store(vuex)
 
 
 //引入axios
@@ -18,5 +19,6 @@ Vue.config.productionTip = false
 new Vue({
   router,//引用router
   axios,//引用axios
+  store,//引用store(vuex)
   render: h => h(Main),
 }).$mount('#myProject')

@@ -11,9 +11,10 @@
 
 <script>
 import ArticleList2 from '../../components/ArticleList2.vue'
+
 export default {
-  components : {
-    'article-list2' : ArticleList2
+  components: {
+    ArticleList2
   }
 };
 </script>

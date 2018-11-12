@@ -1,15 +1,32 @@
 <template>
-  <div class="about">
-    <h1>This is an about page {message}</h1>
+  <div>
+    <div>adasdsad</div>
+    <button @click="clickBtn">点击</button>
+    <button @click="clickBtnBack">再点击</button>
+    <vuex-child></vuex-child>
   </div>
 </template>
 
 <script>
-// import ArticleList1 form './components/ArticleList1.vue'
-// export default {
-//   props: [
-//     'title',
-//     'titleUrl'
-//   ]
-// };
+import VuexChild from '../../components/VuexChild.vue'
+export default {
+  data(){
+    return {
+
+    }
+  },
+  computed: {
+  },
+  methods: {
+    clickBtn(){
+      this.$store.commit('changeChildText', '父组件修改子组件后的文本')
+    },
+    clickBtnBack(){
+      
+    }
+  },
+  components: {
+    VuexChild
+  }
+};
 </script>

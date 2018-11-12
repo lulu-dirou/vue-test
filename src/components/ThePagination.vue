@@ -3,7 +3,7 @@
         <ul>
           <li>«</li>
           <li 
-            v-for="(list,index) in lists()" 
+            v-for="(list,index) in lists" 
             :key="list.id" 
             @click="jumpPage(list)"
             :class="current===index+1?'active':''"
@@ -33,14 +33,14 @@ export default {
     pagegroup: Number
   },
   computed: {
+    lists(){
+      return this.page
+    },
     page(){
       return Math.ceil(this.total / this.display);
     }
   },
   methods: {
-    lists(){
-      return this.page
-    },
     jumpPage(val){
       this.current = val;
       this.$emit('currentPageChange',this.current)

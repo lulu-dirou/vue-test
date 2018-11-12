@@ -1,5 +1,6 @@
 <template>
   <div class="ArticleList2">
+    <the-search @searchEvent='searchEvent'></the-search>
     <div class="hd" v-if="HdShow"><span>{{ HdTitle }}</span></div>
     <div class="bd">
       <ul>
@@ -32,10 +33,13 @@
 
 <script >
 import ThePagination from './ThePagination.vue'
+import TheSearch from './TheSearch.vue'
+
 export default {
   name: 'ArticleList2',
   components: {
     ThePagination,
+    TheSearch
   },
   props: {
     HdTitle:String,
@@ -46,7 +50,13 @@ export default {
       UrlTotal: 30,
       UrlPageSize: 5,
       UrlPageNo: 1,
+      UrlkeyWord: [],
       results: []
+    }
+  },
+  computed: {
+    UrlTotalSearch(){
+      return this.results.length;
     }
   },
   methods: {
@@ -58,10 +68,28 @@ export default {
         this.results = res.data.body.list
       })
     },
+    getApiSearch(){
+      this.$http.post(this.$url.zcfw.listZcfwSearch,{
+        pageSize: this.UrlPageSize,
+        pageNo: this.UrlPageNo,
+        keyWord: this.UrlkeyWord,
+        order: 1
+      }).then((res) => {
+        this.results = res.data.body.list
+      })
+    },
     pagechange(val){
       this.UrlPageNo = val;
       // axios请求, 向后台发送 currentPage, 来获取对应的数据
-      this.getApi();
+      this.getApiSearch();
+    },
+    searchEvent(val){
+      this.UrlkeyWord = val;
+      this.UrlTotal = this.UrlTotalSearch;
+      //this.UrlPageSize = 9999;
+      console.log('关键字有吗'+this.UrlkeyWord);
+      console.log('总数'+this.UrlTotalSearch);
+      this.getApiSearch();
     }
   },
   mounted(){
