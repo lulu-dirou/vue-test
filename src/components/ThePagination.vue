@@ -1,19 +1,19 @@
 <template>
     <div class="pagination">
         <ul>
-          <li>«</li>
-          <li 
-            v-for="(list,index) in lists" 
-            :key="list.id" 
-            @click="jumpPage(list)"
-            :class="current===index+1?'active':''"
-          >
+            <li>«</li>
+            <li 
+                v-for="(list,index) in lists" 
+                :key="list.id" 
+                @click="jumpPage(list)"
+                :class="current===index+1?'active':''"
+            >
             {{ list }}
-          </li>
-          <li>»</li>
-          <li>当前{{ current }}</li>
-          <li>共{{ page }}页</li>
-          <li>共{{ total }}条记录</li>
+            </li>
+            <li>»</li>
+            <li>当前{{ current }}</li>
+            <li>共{{ lists }}页</li>
+            <li>共{{ $store.state.xSearch.listTotal }}条记录</li>
         </ul>
     </div>
 </template>
@@ -23,27 +23,18 @@
 export default {
   data(){
     return {
-      current: this.currentPage
+      current: this.$store.state.xSearch.listPageNo
     }
-  },
-  props: {
-    total: Number,
-    display: Number,
-    currentPage: Number,
-    pagegroup: Number
   },
   computed: {
     lists(){
-      return this.page
-    },
-    page(){
-      return Math.ceil(this.total / this.display);
+      return this.$store.getters.listPageTotal
     }
   },
   methods: {
     jumpPage(val){
       this.current = val;
-      this.$emit('currentPageChange',this.current)
+      this.$store.commit('changeListPageNo', this.current);
     }
   }
 }

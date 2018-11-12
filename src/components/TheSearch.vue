@@ -1,30 +1,29 @@
 <template>
   <div class="theSerch">
-    <input type="text" v-model='keyword' />
+    <input type="text" v-model="keyword" />
     <select>
       <option value="1">Volvo</option>
       <option value="2">Saab</option>
     </select>
-    <button type="button" @click='search(keyword)'>查询</button>
+    <button type="button" @click="clickSearch(keyword)">查询</button>
   </div>
 </template>
 
 
 <script >
 export default {
-  data(){
+  data() {
     return {
-      keyword: []
+      keyword: this.$store.state.xSearch.listkeyWord
     }
-  },
-  props: {
-
   },
   computed: {
   },
   methods: {
-    search(val){
-      this.$emit('searchEvent',val)
+    clickSearch(val){
+      this.keyword = val;
+      this.$store.commit('changeListkeyWord', this.keyword)
+      console.log(this.keyword);
     }
   }
 }

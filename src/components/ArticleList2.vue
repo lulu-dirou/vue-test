@@ -1,6 +1,5 @@
 <template>
   <div class="ArticleList2">
-    <the-search @searchEvent='searchEvent'></the-search>
     <div class="hd" v-if="HdShow"><span>{{ HdTitle }}</span></div>
     <div class="bd">
       <ul>
@@ -15,17 +14,11 @@
                 <span class="msg-time">{{ list.fbsj }}</span>
               </div>
             </div>
-            <div class="sub-box">submit</div>
+            <div class="sub-box">{{ $store.state.xSearch.listPageNo }}</div>
           </router-link>
         </li>
       </ul>
-      <the-pagination
-        :total = 'UrlTotal'
-        :display = 'UrlPageSize'
-        :currentPage = 'UrlPageNo'
-        @currentPageChange = 'pagechange'
-      >
-      </the-pagination>
+      <the-pagination></the-pagination>
     </div>
   </div>
 </template>
@@ -33,67 +26,63 @@
 
 <script >
 import ThePagination from './ThePagination.vue'
-import TheSearch from './TheSearch.vue'
 
 export default {
   name: 'ArticleList2',
   components: {
     ThePagination,
-    TheSearch
   },
   props: {
     HdTitle:String,
     HdShow:Number,
   },
-  data(){
+  data() {
     return {
-      UrlTotal: 30,
-      UrlPageSize: 5,
-      UrlPageNo: 1,
-      UrlkeyWord: [],
       results: []
     }
   },
   computed: {
+    currentPageNo(){
+      return this.$store.state.xSearch.listPageNo
+    },
+    currentKeyWord(){
+      return this.$store.state.xSearch.listkeyWord
+    },
     UrlTotalSearch(){
-      return this.results.length;
-    }
+       return this.results.length;
+     }
   },
   methods: {
     getApi(){
       this.$http.post(this.$url.zcfw.listZcfw,{
-        pageSize: this.UrlPageSize,
-        pageNo: this.UrlPageNo
+        pageSize: this.$store.state.xSearch.listPageSize,
+        pageNo: this.currentPageNo
       }).then((res) => {
         this.results = res.data.body.list
       })
     },
     getApiSearch(){
       this.$http.post(this.$url.zcfw.listZcfwSearch,{
-        pageSize: this.UrlPageSize,
-        pageNo: this.UrlPageNo,
-        keyWord: this.UrlkeyWord,
+        pageSize: 10,
+        pageNo: 1,
+        keyWord: this.currentKeyWord,
         order: 1
       }).then((res) => {
         this.results = res.data.body.list
-      })
+      });
+      console.log('记录'+this.UrlTotalSearch);
     },
-    pagechange(val){
-      this.UrlPageNo = val;
-      // axios请求, 向后台发送 currentPage, 来获取对应的数据
-      this.getApiSearch();
+  },
+  watch: {
+    currentPageNo(){
+        this.getApi();
     },
-    searchEvent(val){
-      this.UrlkeyWord = val;
-      this.UrlTotal = this.UrlTotalSearch;
-      //this.UrlPageSize = 9999;
-      console.log('关键字有吗'+this.UrlkeyWord);
-      console.log('总数'+this.UrlTotalSearch);
-      this.getApiSearch();
+    currentKeyWord(){
+        this.getApiSearch();
     }
   },
-  mounted(){
-    this.getApi();
+  mounted() {
+    this.getApi()
   }
 }
 </script>

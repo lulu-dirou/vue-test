@@ -1,18 +1,24 @@
 export default {
   state: {
-    testMsG: '父组件数据',
-    childText: '子组件数据'
+    listTotal: 32,
+    listPageSize: 5,
+    listPageNo: 1,
+    listkeyWord: "好"
   },
   getters: {
+    listPageTotal(state){
+      return Math.ceil( state.listTotal / state.listPageSize )
+    }
   },
   mutations: {
-    changeText(state,val){
-      state.testMsG = val
+    changeListPageNo(state,val){
+      state.listPageNo = val
     },
-    changeChildText(state,val){
-      state.childText = val
+    changeListkeyWord(state,val){
+      state.listkeyWord = val
     }
   },
   actions: {
+
   },
 }
