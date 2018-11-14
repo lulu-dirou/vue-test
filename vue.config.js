@@ -20,7 +20,7 @@ module.exports = {
     //跨域反向代理,需axios支持,Vue CLI3 API
     proxy: {
       '/api': {
-        target: 'http://183.237.175.100:8080/GEService/',
+        target: 'http://183.237.175.100:3333/GEService/',
         // secure: false,  // 如果是https接口，需要配置这个参数
         changeOrigin: true,
         pathRewrite: {

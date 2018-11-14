@@ -1,29 +1,47 @@
 <template>
-    <div class="policy">
-        <h1>政策服务</h1>
-        <the-search></the-search>
-        <article-list2 
-        hd-title="最新政策" 
-        :hd-show="1" 
-        >
-        </article-list2>
+  <div class="policy">
+    <h1>政策服务</h1>
+    <div class="search lu-flex">
+      <input type="text" v-model="keyword" placeholder="请输入关键字" />
+      <button type="button" @click="mySearch(keyword)">搜...索</button>
     </div>
+    <list-zcfw :listKeyWord='postkeyword'></list-zcfw>
+  </div>
 </template>
 
+
+
+
 <script>
-import ArticleList2 from '../../components/ArticleList2.vue'
-import TheSearch from '../../components/TheSearch.vue'
+import ListZcfw from '../../components/ListZcfw.vue'
 
 export default {
   components: {
-    ArticleList2,
-    TheSearch
+    ListZcfw
+  },
+  data() {
+    return {
+      keyword: '',
+      postkeyword: ''
+    }
+  },
+  methods: {
+    mySearch(val) {
+      this.postkeyword = val;
+    }
   }
-};
+}
 </script>
+
+
+
 
 <style>
 .policy {
   padding: 20px;
+}
+.policy .search input {
+  flex: 1;
+  margin: 20px 0;
 }
 </style>

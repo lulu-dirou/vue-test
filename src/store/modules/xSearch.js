@@ -1,9 +1,6 @@
 export default {
   state: {
-    listTotal: 32,
-    listPageSize: 5,
-    listPageNo: 1,
-    listkeyWord: "好"
+    KeyWordZcfw: "好"
   },
   getters: {
     listPageTotal(state){
