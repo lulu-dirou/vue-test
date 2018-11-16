@@ -26,7 +26,15 @@
 	//父组件通过porps传递到子组件，子组件通过$emit发送事件到父组件
 
 
-#   npm install vuex --save
+#   cnpm install vuex --save
 	//安装vuex 解决父子组件之间互相修改数据
 	//1、vuex就是在vue中创建全局变量的东西
 	//2、vuex提供了一些优雅的方法，可以让我们改变全局变量的值
+
+
+#   cnpm install less --save
+    //安装less
+
+
+#   cnpm install sass-loader node-sass -D
+    //安装sass,全局需要在vue.config.js引用

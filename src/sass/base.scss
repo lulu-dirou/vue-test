@@ -1,0 +1,52 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    color: $font-color-shallow9;
+    font-size: $font-size-df;
+}
+
+a{
+    @include link($link:$font-color-shallow3);
+}
+
+
+// 弹性盒
+.flex{
+    display: inline-flex;
+    display: -webkit-flex;
+    display: flex;
+}
+// 弹性盒-子元素可竖向居中
+.flex-middle{
+    display :flex; 
+    display:-webkit-flex; 
+    align-items:center; 
+    -webkit-align-items:center; 
+    justify-content:center ;
+}
+// 清除浮动
+.clear{
+    &:before,&:after{
+        display:table;
+        content:" ";
+    }
+    &:after {
+        clear:both;
+    }
+    *zoom:1;
+}
+// 禁止长按选中
+*:not(input, textarea) {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+

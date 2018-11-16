@@ -16,8 +16,18 @@
 // }
 
 module.exports = {
+  //引入sass全局变量
+  css: {
+    loaderOptions: {
+      sass: {
+        data: `
+          @import "./src/sass/mixin.scss";
+        `
+      }
+    }
+  },
+  //跨域反向代理,需axios支持,Vue CLI3 API
   devServer: {
-    //跨域反向代理,需axios支持,Vue CLI3 API
     proxy: {
       '/api': {
         target: 'http://183.237.175.100:3333/GEService/',

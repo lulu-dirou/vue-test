@@ -1,6 +1,6 @@
 <template>
     <div id="TheMenu">
-        <ul class="lu-flex">
+        <ul class="flex-middle">
             <!-- <li v-for="nav in navs" v-bind:class="classObj" v-bind:key="nav.id">{{ nav.title }}</li> -->
           <li><router-link to="/home">home</router-link></li>
           <li><router-link to="/appeal">appeal</router-link></li>
@@ -18,9 +18,9 @@ export default {
 </script>
 
 
-<style scoped>
+<style lang="scss" scoped>
 #TheMenu {
-  background-color: #1476d1;
+  @include bg_color($bg-color-theme);
 }
 #TheMenu ul {
   width: 100%;
