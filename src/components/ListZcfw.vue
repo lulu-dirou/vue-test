@@ -1,17 +1,16 @@
 <template>
   <div class="listZcfw">
     <div class="bd">
-      <ul>
+      <ul class="list-1">
         <li v-for="list in lists" :key="list.id">
-          <router-link class="lu-flex" v-bind:to="{path:'/policyArticleInfo',query:{id:list.id}}">
-            <div class="dot-box"></div>
+          <router-link class="flex" v-bind:to="{path:'/policyArticleInfo',query:{id:list.id}}">
+            <div class="dot-box"><span class="arrow"></span></div>
             <div class="msg-box">
               <div class="msg-title-max"><span>{{ list.zcly }}</span></div>
               <div class="msg-title">{{ list.zczt }}</div>
               <div class="msg-min flex">
                 <span class="msg-label">{{ list.zcbqname }}</span>
                 <span class="msg-time">{{ list.fbsj }}</span>
-                <span class="arrow"></span>
               </div>
             </div>
             <div class="sub-box">{{ searchLists }}</div>
@@ -118,69 +117,18 @@ export default {
 <style lang="scss" scoped>
 
 .listZcfw {
-  .hd {
-    margin-bottom: 10px;
-    height: 40px;
-    line-height: 40px;
-    font-size: 20px;
-    font-weight: 600;
-    color: #856751;
-    border-bottom: 1px solid #ccc;
-  }
-  .bd{
-    li {
-      @include radius;
-      @include link($link:red,$hover:yellow,$visited:green);
-      @include shadow;
-      @include transitions;
-      align-items: center;
-      padding-bottom: 15px;
-      margin-bottom: 15px;
-      border-bottom: 1px solid #eee;
-      .dot-box {
-        flex: 0 0 30px;
-        margin-right: 10px;
-      }
-      .msg-box {
-        flex: 1;
-        .msg-title-max {
-          margin: 10px 0;
-          font-size: 14px;
-          color: #999;
-          span {
-            padding: 2px 10px;
-            background: rgba(#ff6600,0.05);
-          }
-        }
-        .msg-title {
-          @include lines($line:1);
-          font-size: 14px;
-          color: red;
-        }
-        .msg-min {
-          align-items: center;
-          font-size: 12px;
-          color: #999;
-          .msg-label {
-            margin-right: 5px;
-            color: #6BAEAB;
-          }
-          .arrow {
-            @include arrow(right,25px,red);
-            // @include bd_color(#ff6600);
-          }
-        }
-      }
-      &:hover {
-        background-color: rgba(blue,0.1);
-            @include bg_color(#ff6600);
-            opacity: 0.1;
 
-      }
+    background-color: #fff;
+    .hd {
+        margin-bottom: 10px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 20px;
+        font-weight: 600;
+        color: #856751;
+        border-bottom: 1px solid #ccc;
     }
-    .sub-box {
-      margin-left: 10px;
+    .bd{
     }
-  }
 }
 </style>

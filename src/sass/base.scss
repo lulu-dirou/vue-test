@@ -4,16 +4,9 @@
     padding: 0;
     list-style: none;
     text-decoration: none;
+    outline: none;
     box-sizing: border-box;
-    color: $font-color-shallow9;
-    font-size: $font-size-df;
 }
-
-a{
-    @include link($link:$font-color-shallow3);
-}
-
-
 // 弹性盒
 .flex{
     display: inline-flex;
@@ -50,3 +43,142 @@ a{
 }
 
 
+
+
+//********************************
+//
+// common
+//
+//********************************
+body {
+  color: $font-color-shallow6;
+  font-size: $font-size-df;
+  background-color: #e1e1e1;
+}
+a {
+  @include link($link:$font-color-shallow3);
+}
+
+//
+// list-1
+//
+.list-1 li {
+  padding: 10px 0;
+  border-bottom: 1px solid #e1e1e1;
+  @include theme_bd(neutral-divider);
+  &:hover {
+    background-color: rgba(#999,0.05);
+  }
+  .dot-box {
+    flex: 0 0 20px;
+    span {
+      position: relative;
+      top: 12px;
+      display: block;
+      width: 4px;
+      height: 16px;
+      @include theme_bg(primary,0.6);
+    }
+  }
+  .msg-box {
+    flex: 1;
+    .msg-title-max {
+      margin: 10px 0;
+      span {
+        padding: 5px 8px;
+        border: 1px solid #e1e1e1;
+        font-size: $font-size-df;
+        @include theme_font(primary);
+        @include theme_bd(primary,0.4);
+        @include theme_bg(primary,0.1);
+      }
+    }
+    .msg-title {
+      margin: 10px 0;
+      font-size: $font-size-dfx;
+      @include theme_font(neutral-content);
+      @include lines($line:1);
+    }
+    .msg-min {
+      justify-content: space-between;
+      span {
+        font-size: $font-size-sm;
+        @include theme_font(neutral-content,0.6);
+      }
+      .msg-label {
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+//
+// pages
+//
+.pages {
+  header {
+    padding: 40px 0;
+    border-top: 1px solid rgba(#fff,0.4);
+    @include theme_bg(primary);
+    .box {
+      width: 1200px;
+      margin: 0 auto;
+      h1 {
+        flex: 1;
+        font-size: 30px;
+        color: #fff;
+        span {
+          display: block;
+          font-weight: normal;
+          font-size: $font-size-df;
+          color: rgba(#fff,0.8);
+        }
+      }
+      .search {
+        input {
+          width: 300px;
+          height: 40px;
+          padding: 0 10px;
+          border:0;
+          color: #fff;
+          background-color: rgba(#000,0.2);
+        }
+        button {
+          width: 100px;
+          height: 40px;
+          border: 0;
+          color: #fff;
+          @include theme_bg(info);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  >section {
+    width: 1200px;
+    padding: 40px;
+    margin: 20px auto;
+    background-color: #fff;
+    @include shadow;
+  }
+}
+
+
+//
+// details
+//
+.details {
+  section {
+    width: 1200px;
+    padding: 40px;
+    margin: 20px auto;
+    background-color: #fff;
+    @include shadow;
+    h1 {
+      margin: 20px 0;
+      text-align: center;
+      font-size: 30px;
+      @include theme_font(neutral-content);
+    }
+  }
+}

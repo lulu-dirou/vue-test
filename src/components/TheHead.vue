@@ -40,7 +40,7 @@ export default {
         padding: 10px;
         align-items: center;
         color: #fff;
-        @include bg_color($bg-color-theme);
+        @include theme_bg(neutral);
     }
     #TheHead .logo {
         width: 60px;

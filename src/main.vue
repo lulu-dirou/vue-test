@@ -28,19 +28,5 @@ export default {
 }
 </script>
 
-<style lang="scss">
-
-#MyVue {
-}
-#MyVue .menu {
-    width: 1200px;
-    margin: 0 auto;
-}
-#MyVue .content {
-    width: 1200px;
-    height: 100%;
-    margin: 0 auto 20px auto;
-    background-color: #fff;
-}
-
+<style lang="scss" scoped>
 </style>

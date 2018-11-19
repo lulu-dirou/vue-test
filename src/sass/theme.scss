@@ -1,21 +1,77 @@
-//颜色定义规范
-$bg-color-theme: #3f8e4d;//背景主题颜色默认
-$bg-color-theme1: red;//背景主题颜色1
-$bg-color-theme2: #652BF5;//背景主题颜色2
-$bg-color-theme3: deepskyblue;//背景主题颜色3
-$bg-color-themesec: #edc148;//背景次要主题颜色
- 
-$text-color-theme : #3f8e4d;//字体主题颜色默认
-$text-color-theme1 : red;//字体主题颜色1
-$text-color-theme2 : #652BF5;//字体主题颜色2
-$text-color-theme3 : deepskyblue;//字体主题颜色3
-$text-color-themesec : #edc148;//字体次要主题颜色
+// 颜色定义规范
+// 默认主题
+$theme-primary: #ef7800;
+$theme-primary-dark: #bc5d45;
+$theme-info: #C0A48B;
+$theme-success: #7F9E3B;
+$theme-warning: #C0A48B;
+$theme-danger: #F44336;
+$theme-neutral: #242328;
+$theme-neutral-content: #515a6e;
+$theme-neutral-disabled: #c5c8ce;
+$theme-neutral-border: #dcdee2;
+$theme-neutral-divider: #e8eaec;
+// 主题1
+$theme1-primary: #2d8cf0;
+$theme1-primary-dark: #2b85e4;
+$theme1-info: #2db7f5;
+$theme1-success: #19be6b;
+$theme1-warning: #ff9900;
+$theme1-danger: #ed4014;
+$theme1-neutral: #17233d;
+$theme1-neutral-content: #515a6e;
+$theme1-neutral-disabled: #c5c8ce;
+$theme1-neutral-border: #dcdee2;
+$theme1-neutral-divider: #e8eaec;
+// 主题2
+$theme2-primary: #ef7800;
+$theme2-primary-dark: #bc5d45;
+$theme2-info: #C0A48B;
+$theme2-success: #7F9E3B;
+$theme2-warning: #C0A48B;
+$theme2-danger: #F44336;
+$theme2-neutral: #242328;
+$theme2-neutral-content: #515a6e;
+$theme2-neutral-disabled: #c5c8ce;
+$theme2-neutral-border: #dcdee2;
+$theme2-neutral-divider: #e8eaec;
+// 主题3
+$theme3-primary: #652BF5;
+$theme3-primary-dark: #652BF5;
+$theme3-info: #652BF5;
+$theme3-success: #652BF5;
+$theme3-warning: #652BF5;
+$theme3-danger: #652BF5;
+$theme3-neutral: #242328;
+$theme3-neutral-content: #515a6e;
+$theme3-neutral-disabled: #c5c8ce;
+$theme3-neutral-border: #dcdee2;
+$theme3-neutral-divider: #e8eaec;
 
-$bd-color-theme : #3f8e4d;//字体主题颜色默认
-$bd-color-theme1 : red;//字体主题颜色1
-$bd-color-theme2 : #652BF5;//字体主题颜色2
-$bd-color-theme3 : deepskyblue;//字体主题颜色3
-$bd-color-themesec : #edc148;//字体次要主题颜色
+
+
+
+// // 默认主题
+// $theme-text: #ef7800;
+// $theme-bg: #ef7800;
+// $theme-bgsec: #242328;
+// $theme-bd: #ef7800;
+// // 主题1
+// $theme1-text: #ff0000;
+// $theme1-bg: #ff0000;
+// $theme1-bgsec: #666;
+// $theme1-bd: #ff0000;
+// // 主题2
+// $theme2-text: #652BF5;
+// $theme2-bg: #652BF5;
+// $theme2-bgsec: #999;
+// $theme2-bd: #652BF5;
+// // 主题3
+// $theme3-text: deepskyblue;
+// $theme3-bg: deepskyblue;
+// $theme3-bgsec: #000;
+// $theme3-bd: deepskyblue;
+
 
 
 $font-color-shallow0 : #000;
@@ -28,7 +84,7 @@ $font-color-shallow6 : #666;
 $font-color-shallow7 : #777;
 $font-color-shallow8 : #888;
 $font-color-shallow9 : #999;
-$font-color-shallowdb : #dbdbdb;
+$font-color-shallowdb : #ccc;
  
 //字体定义规范
 $font-size-xs:10px;

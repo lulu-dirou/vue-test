@@ -57,12 +57,12 @@
 }
 
 
-// transitions
-@mixin transitions($time: 0.5s){
-    -webkit-transition: all $time ease;
-    -moz-transition: all $time ease;
-    -ms-transition: all $time ease;
-    transition: all $time ease;
+// transition
+@mixin transition($time: 0.5s){
+    -webkit-transition: all $time ease-in-out;
+    -moz-transition: all $time ease-in-out;
+    -ms-transition: all $time ease-in-out;
+    transition: all $time ease-in-out;
 }
 
 
@@ -133,42 +133,168 @@
 // 封装函数设置各状态颜色
 // 通过setAttribute添加属性data-theme挂载到最外层页面html根节点上来判断选择哪个主题颜色
 // 文字颜色
-@mixin font_color($color){
-    color:$color;
+@mixin theme_font($sel,$opacity:1){
+    [data-theme="theme"] & {
+        @if $sel == primary { color: rgba($theme-primary,$opacity); }
+        @else if $sel == primary-dark { color: rgba($theme-primary-dark,$opacity); }
+        @else if $sel == info { color: rgba($theme-info,$opacity); }
+        @else if $sel == success { color: rgba($theme-success,$opacity); }
+        @else if $sel == warning { color: rgba($theme-warning,$opacity); }
+        @else if $sel == danger { color: rgba($theme-danger,$opacity); }
+        @else if $sel == neutral { color: rgba($theme-neutral,$opacity); }
+        @else if $sel == neutral-content { color: rgba($theme-neutral-content,$opacity); }
+        @else if $sel == neutral-disabled { color: rgba($theme-neutral-disabled,$opacity); }
+        @else if $sel == neutral-border { color: rgba($theme-neutral-border,$opacity); }
+        @else if $sel == neutral-divider { color: rgba($theme-neutral-divider,$opacity); }
+    }
     [data-theme="theme1"] & {
-        color:$text-color-theme1;
+        @if $sel == primary { color: rgba($theme1-primary,$opacity); }
+        @else if $sel == primary-dark { color: rgba($theme1-primary-dark,$opacity); }
+        @else if $sel == info { color: rgba($theme1-info,$opacity); }
+        @else if $sel == success { color: rgba($theme1-success,$opacity); }
+        @else if $sel == warning { color: rgba($theme1-warning,$opacity); }
+        @else if $sel == danger { color: rgba($theme1-danger,$opacity); }
+        @else if $sel == neutral { color: rgba($theme1-neutral,$opacity); }
+        @else if $sel == neutral-content { color: rgba($theme1-neutral-content,$opacity); }
+        @else if $sel == neutral-disabled { color: rgba($theme1-neutral-disabled,$opacity); }
+        @else if $sel == neutral-border { color: rgba($theme1-neutral-border,$opacity); }
+        @else if $sel == neutral-divider { color: rgba($theme1-neutral-divider,$opacity); }
     }
     [data-theme="theme2"] & {
-        color:$text-color-theme2;
+        @if $sel == primary { color: rgba($theme2-primary,$opacity); }
+        @else if $sel == primary-dark { color: rgba($theme2-primary-dark,$opacity); }
+        @else if $sel == info { color: rgba($theme2-info,$opacity); }
+        @else if $sel == success { color: rgba($theme2-success,$opacity); }
+        @else if $sel == warning { color: rgba($theme2-warning,$opacity); }
+        @else if $sel == danger { color: rgba($theme2-danger,$opacity); }
+        @else if $sel == neutral { color: rgba($theme2-neutral,$opacity); }
+        @else if $sel == neutral-content { color: rgba($theme2-neutral-content,$opacity); }
+        @else if $sel == neutral-disabled { color: rgba($theme2-neutral-disabled,$opacity); }
+        @else if $sel == neutral-border { color: rgba($theme2-neutral-border,$opacity); }
+        @else if $sel == neutral-divider { color: rgba($theme2-neutral-divider,$opacity); }
     }
     [data-theme="theme3"] & {
-        color:$text-color-theme3;
+        @if $sel == primary { color: rgba($theme3-primary,$opacity); }
+        @else if $sel == primary-dark { color: rgba($theme3-primary-dark,$opacity); }
+        @else if $sel == info { color: rgba($theme3-info,$opacity); }
+        @else if $sel == success { color: rgba($theme3-success,$opacity); }
+        @else if $sel == warning { color: rgba($theme3-warning,$opacity); }
+        @else if $sel == danger { color: rgba($theme3-danger,$opacity); }
+        @else if $sel == neutral { color: rgba($theme3-neutral,$opacity); }
+        @else if $sel == neutral-content { color: rgba($theme3-neutral-content,$opacity); }
+        @else if $sel == neutral-disabled { color: rgba($theme3-neutral-disabled,$opacity); }
+        @else if $sel == neutral-border { color: rgba($theme3-neutral-border,$opacity); }
+        @else if $sel == neutral-divider { color: rgba($theme3-neutral-divider,$opacity); }
     }
 }
-// 背景颜色
-@mixin bg_color($color){
-    background-color:$color;
+// 背景色
+@mixin theme_bg($sel,$opacity:1){
+    [data-theme="theme"] & {
+        @if $sel == primary { background-color: rgba($theme-primary,$opacity); }
+        @else if $sel == primary-dark { background-color: rgba($theme-primary-dark,$opacity); }
+        @else if $sel == info { background-color: rgba($theme-info,$opacity); }
+        @else if $sel == success { background-color: rgba($theme-success,$opacity); }
+        @else if $sel == warning { background-color: rgba($theme-warning,$opacity); }
+        @else if $sel == danger { background-color: rgba($theme-danger,$opacity); }
+        @else if $sel == neutral { background-color: rgba($theme-neutral,$opacity); }
+        @else if $sel == neutral-content { background-color: rgba($theme-neutral-content,$opacity); }
+        @else if $sel == neutral-disabled { background-color: rgba($theme-neutral-disabled,$opacity); }
+        @else if $sel == neutral-border { background-color: rgba($theme-neutral-border,$opacity); }
+        @else if $sel == neutral-divider { background-color: rgba($theme-neutral-divider,$opacity); }
+    }
     [data-theme="theme1"] & {
-        background-color:$bg-color-theme1;
+        @if $sel == primary { background-color: rgba($theme1-primary,$opacity); }
+        @else if $sel == primary-dark { background-color: rgba($theme1-primary-dark,$opacity); }
+        @else if $sel == info { background-color: rgba($theme1-info,$opacity); }
+        @else if $sel == success { background-color: rgba($theme1-success,$opacity); }
+        @else if $sel == warning { background-color: rgba($theme1-warning,$opacity); }
+        @else if $sel == danger { background-color: rgba($theme1-danger,$opacity); }
+        @else if $sel == neutral { background-color: rgba($theme1-neutral,$opacity); }
+        @else if $sel == neutral-content { background-color: rgba($theme1-neutral-content,$opacity); }
+        @else if $sel == neutral-disabled { background-color: rgba($theme1-neutral-disabled,$opacity); }
+        @else if $sel == neutral-border { background-color: rgba($theme1-neutral-border,$opacity); }
+        @else if $sel == neutral-divider { background-color: rgba($theme1-neutral-divider,$opacity); }
     }
     [data-theme="theme2"] & {
-        background-color:$bg-color-theme2;
+        @if $sel == primary { background-color: rgba($theme2-primary,$opacity); }
+        @else if $sel == primary-dark { background-color: rgba($theme2-primary-dark,$opacity); }
+        @else if $sel == info { background-color: rgba($theme2-info,$opacity); }
+        @else if $sel == success { background-color: rgba($theme2-success,$opacity); }
+        @else if $sel == warning { background-color: rgba($theme2-warning,$opacity); }
+        @else if $sel == danger { background-color: rgba($theme2-danger,$opacity); }
+        @else if $sel == neutral { background-color: rgba($theme2-neutral,$opacity); }
+        @else if $sel == neutral-content { background-color: rgba($theme2-neutral-content,$opacity); }
+        @else if $sel == neutral-disabled { background-color: rgba($theme2-neutral-disabled,$opacity); }
+        @else if $sel == neutral-border { background-color: rgba($theme2-neutral-border,$opacity); }
+        @else if $sel == neutral-divider { background-color: rgba($theme2-neutral-divider,$opacity); }
     }
     [data-theme="theme3"] & {
-        background-color:$bg-color-theme3;
+        @if $sel == primary { background-color: rgba($theme3-primary,$opacity); }
+        @else if $sel == primary-dark { background-color: rgba($theme3-primary-dark,$opacity); }
+        @else if $sel == info { background-color: rgba($theme3-info,$opacity); }
+        @else if $sel == success { background-color: rgba($theme3-success,$opacity); }
+        @else if $sel == warning { background-color: rgba($theme3-warning,$opacity); }
+        @else if $sel == danger { background-color: rgba($theme3-danger,$opacity); }
+        @else if $sel == neutral { background-color: rgba($theme3-neutral,$opacity); }
+        @else if $sel == neutral-content { background-color: rgba($theme3-neutral-content,$opacity); }
+        @else if $sel == neutral-disabled { background-color: rgba($theme3-neutral-disabled,$opacity); }
+        @else if $sel == neutral-border { background-color: rgba($theme3-neutral-border,$opacity); }
+        @else if $sel == neutral-divider { background-color: rgba($theme3-neutral-divider,$opacity); }
     }
 }
-// 边框颜色
-@mixin bd_color($color){
-    border-color:$color;
+// 边框色
+@mixin theme_bd($sel,$opacity:1){
+    [data-theme="theme"] & {
+        @if $sel == primary { border-color: rgba($theme-primary,$opacity); }
+        @else if $sel == primary-dark { border-color: rgba($theme-primary-dark,$opacity); }
+        @else if $sel == info { border-color: rgba($theme-info,$opacity); }
+        @else if $sel == success { border-color: rgba($theme-success,$opacity); }
+        @else if $sel == warning { border-color: rgba($theme-warning,$opacity); }
+        @else if $sel == danger { border-color: rgba($theme-danger,$opacity); }
+        @else if $sel == neutral { border-color: rgba($theme-neutral,$opacity); }
+        @else if $sel == neutral-content { border-color: rgba($theme-neutral-content,$opacity); }
+        @else if $sel == neutral-disabled { border-color: rgba($theme-neutral-disabled,$opacity); }
+        @else if $sel == neutral-border { border-color: rgba($theme-neutral-border,$opacity); }
+        @else if $sel == neutral-divider { border-color: rgba($theme-neutral-divider,$opacity); }
+    }
     [data-theme="theme1"] & {
-        border-color:$bd-color-theme1;
+        @if $sel == primary { border-color: rgba($theme1-primary,$opacity); }
+        @else if $sel == primary-dark { border-color: rgba($theme1-primary-dark,$opacity); }
+        @else if $sel == info { border-color: rgba($theme1-info,$opacity); }
+        @else if $sel == success { border-color: rgba($theme1-success,$opacity); }
+        @else if $sel == warning { border-color: rgba($theme1-warning,$opacity); }
+        @else if $sel == danger { border-color: rgba($theme1-danger,$opacity); }
+        @else if $sel == neutral { border-color: rgba($theme1-neutral,$opacity); }
+        @else if $sel == neutral-content { border-color: rgba($theme1-neutral-content,$opacity); }
+        @else if $sel == neutral-disabled { border-color: rgba($theme1-neutral-disabled,$opacity); }
+        @else if $sel == neutral-border { border-color: rgba($theme1-neutral-border,$opacity); }
+        @else if $sel == neutral-divider { border-color: rgba($theme1-neutral-divider,$opacity); }
     }
     [data-theme="theme2"] & {
-        border-color:$bd-color-theme2;
+        @if $sel == primary { border-color: rgba($theme2-primary,$opacity); }
+        @else if $sel == primary-dark { border-color: rgba($theme2-primary-dark,$opacity); }
+        @else if $sel == info { border-color: rgba($theme2-info,$opacity); }
+        @else if $sel == success { border-color: rgba($theme2-success,$opacity); }
+        @else if $sel == warning { border-color: rgba($theme2-warning,$opacity); }
+        @else if $sel == danger { border-color: rgba($theme2-danger,$opacity); }
+        @else if $sel == neutral { border-color: rgba($theme2-neutral,$opacity); }
+        @else if $sel == neutral-content { border-color: rgba($theme2-neutral-content,$opacity); }
+        @else if $sel == neutral-disabled { border-color: rgba($theme2-neutral-disabled,$opacity); }
+        @else if $sel == neutral-border { border-color: rgba($theme2-neutral-border,$opacity); }
+        @else if $sel == neutral-divider { border-color: rgba($theme2-neutral-divider,$opacity); }
     }
     [data-theme="theme3"] & {
-        border-color:$bd-color-theme3;
+        @if $sel == primary { border-color: rgba($theme3-primary,$opacity); }
+        @else if $sel == primary-dark { border-color: rgba($theme3-primary-dark,$opacity); }
+        @else if $sel == info { border-color: rgba($theme3-info,$opacity); }
+        @else if $sel == success { border-color: rgba($theme3-success,$opacity); }
+        @else if $sel == warning { border-color: rgba($theme3-warning,$opacity); }
+        @else if $sel == danger { border-color: rgba($theme3-danger,$opacity); }
+        @else if $sel == neutral { border-color: rgba($theme3-neutral,$opacity); }
+        @else if $sel == neutral-content { border-color: rgba($theme3-neutral-content,$opacity); }
+        @else if $sel == neutral-disabled { border-color: rgba($theme3-neutral-disabled,$opacity); }
+        @else if $sel == neutral-border { border-color: rgba($theme3-neutral-border,$opacity); }
+        @else if $sel == neutral-divider { border-color: rgba($theme3-neutral-divider,$opacity); }
     }
 }
 

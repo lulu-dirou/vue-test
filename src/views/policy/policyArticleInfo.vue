@@ -1,8 +1,9 @@
 <template>
-  <div>
-    <h1>详情页</h1>
-    <h2>{{ results.zczt }}</h2>
-    <h6 v-html="results.zcbj"></h6>
+  <div class="details">
+    <section>
+      <h1>{{ results.zczt }}</h1>
+      <p v-html="results.zcbj"></p>
+    </section>
   </div>
 </template>
 
@@ -24,6 +25,6 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 
 </style>

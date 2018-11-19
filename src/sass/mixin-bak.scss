@@ -1,0 +1,191 @@
+// 引用主题配置颜色
+@import './theme.scss';
+// 引用共用样式文件
+@import './common.scss';
+
+
+// 链接
+@mixin link($link:#333,$hover:#666,$visited:#999){
+    color: $link;
+    &:hover{color: $hover;}
+    &:visited{color: $visited;}
+}
+
+
+// 文字超行溢出显示省略号
+@mixin lines($line:1){
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+}
+
+
+// 圆角
+@mixin radius($raidus:5px){
+    -webkit-border-radius: $raidus;
+    -moz-border-radius: $raidus;
+    -ms-border-radius: $raidus;
+    -o-border-radius: $raidus;
+    border-radius: $raidus;
+}
+
+
+// 外阴影
+@mixin shadow($x:0, $y:2px, $blur:10px, $spread:0, $color:rgba(#000,0.1)){
+    -webkit-box-shadow: $x $y $blur $spread $color;
+    -moz-box-shadow: $x $y $blur $spread $color;
+    -ms-box-shadow: $x $y $blur $spread $color;
+    -o-box-shadow: $x $y $blur $spread $color;
+    box-shadow: $x $y $blur $spread $color;
+}
+// 内阴影
+@mixin shadow-inset($x:0, $y:2px, $blur:10px, $spread:0, $color:rgba(#000,0.1)){
+    -webkit-box-shadow: inset $x $y $blur $spread $color;
+    -moz-box-shadow: inset $x $y $blur $spread $color;
+    -ms-box-shadow: inset $x $y $blur $spread $color;
+    -o-box-shadow: inset $x $y $blur $spread $color;
+    box-shadow: inset $x $y $blur $spread $color;
+}
+
+
+// 透明度
+@mixin opacity($opacity){
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie);
+}
+
+
+// transitions
+@mixin transitions($time: 0.5s){
+    -webkit-transition: all $time ease;
+    -moz-transition: all $time ease;
+    -ms-transition: all $time ease;
+    transition: all $time ease;
+}
+
+
+//transfrom兼容
+@mixin translateX($x:50%){
+    -ms-transform: translateX($x);
+    -moz-transform: translateX($x);
+    -webkit-transform: translateX($x);
+    -o-transform: translateX($x);
+    transform: translateX($x);
+}
+@mixin translateY($y:50%){
+    -ms-transform: translateY($y);
+    -moz-transform: translateY($y);
+    -webkit-transform: translateY($y);
+    -o-transform: translateY($y);
+    transform: translateY($y);
+}
+@mixin rotate($deg:90deg){
+    -ms-transform:rotate($deg);
+    -moz-transform:rotate($deg);
+    -webkit-transform:rotate($deg);
+    -o-transform:rotate($deg);
+    transform:rotate($deg);
+}
+
+
+// 渐变
+@mixin linear-gradient($from,$to) {
+    background-color: $to;
+    background-image: -moz-linear-gradient($from, $to);
+    background-image: -o-linear-gradient($from, $to);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, $from), color-stop(1, $to));
+    background-image: -webkit-linear-gradient($from, $to);
+    background-image: -ms-linear-gradient($from, $to);
+    background-image: linear-gradient($from, $to);
+}
+
+
+// 三角箭头
+@mixin arrow($direction,$size,$color) {
+    width: 0;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+    overflow: hidden;
+    border-style: solid;
+    border-width: $size;
+    @if $direction == top {
+        border-color: transparent transparent $color transparent;
+        border-top: none;
+    }
+    @else if $direction == bottom {
+        border-color: $color transparent transparent transparent;
+        border-bottom: none;
+    }
+    @else if $direction == right {
+        border-color: transparent transparent transparent $color;
+        border-right: none;
+    }
+    @else if $direction == left {
+        border-color: transparent $color transparent transparent;
+        border-left: none;
+    }
+}
+
+
+// 封装函数设置各状态颜色
+// 通过setAttribute添加属性data-theme挂载到最外层页面html根节点上来判断选择哪个主题颜色
+// 文字颜色
+@mixin theme_text($color,$opacity:1){
+    color: rgba($color,$opacity);
+    [data-theme="theme1"] & {
+        color: rgba($theme1-text,$opacity);
+    }
+    [data-theme="theme2"] & {
+        color: rgba($theme2-text,$opacity);
+    }
+    [data-theme="theme3"] & {
+        color: rgba($theme3-text,$opacity);
+    }
+}
+// 背景颜色
+@mixin theme_bg($color,$opacity:1){
+    background-color: rgba($color,$opacity);
+    [data-theme="theme1"] & {
+        background-color: rgba($theme1-bg,$opacity);
+    }
+    [data-theme="theme2"] & {
+        background-color: rgba($theme2-bg,$opacity);
+    }
+    [data-theme="theme3"] & {
+        background-color: rgba($theme3-bg,$opacity);
+    }
+}
+// 背景次颜色
+@mixin theme_bgsec($color,$opacity:1){
+    background-color: rgba($color,$opacity);
+    [data-theme="theme1"] & {
+        background-color: rgba($theme1-bgsec,$opacity);
+    }
+    [data-theme="theme2"] & {
+        background-color: rgba($theme2-bgsec,$opacity);
+    }
+    [data-theme="theme3"] & {
+        background-color: rgba($theme3-bgsec,$opacity);
+    }
+}
+// 边框颜色                                                                                                                                                                                                                                                      
+@mixin theme_bd($color,$opacity:1){
+    border-color: rgba($color,$opacity);
+    [data-theme="theme1"] & {
+        border-color: rgba($theme1-bd,$opacity);
+    }
+    [data-theme="theme2"] & {
+        border-color: rgba($theme2-bd,$opacity);
+    }
+    [data-theme="theme3"] & {
+        border-color: rgba($theme3-bd,$opacity);
+    }
+}
+
+
+

@@ -1,7 +1,7 @@
 <template>
   <div class="pagination">
     <ul>
-      <li @click="changePage(currentPage-1)"><span>上一页</span></li>
+      <li @click="changePage(currentPage-1)"><span>←</span></li>
       <li>当前{{ cur }}</li>
       <li 
         v-for="(list,index) in totalPage" 
@@ -9,8 +9,8 @@
         @click="changePage(list)"
         :class="currentPage===index+1?'active':''"
       >
-      <em>{{ list }}</em>
-      <li @click="changePage(currentPage+1)"><span>下一页</span></li>
+      <span>{{ list }}</span>
+      <li @click="changePage(currentPage+1)"><span>→</span></li>
     </ul>
   </div>
 </template>
@@ -48,35 +48,28 @@ export default {
 </script>
 
 
-<style scoped>
+<style lang="scss" scoped>
 .pagination {
   margin: 30px 0;
-  font-size: 12px;
-  text-align: center;
-}
-.pagination li {
-  display: inline-block;
-  margin: 10px 5px;
-  font-size: 14px;
-  cursor: pointer;
-  user-select: none;
-}
-.pagination li em {
-  padding: 5px 5px;
-}
-.pagination li span {
-  padding: 15px 40px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-.pagination li span:hover {
-  color: #fff;
-  border-color: #1476d1;
-  background-color: #1476d1;
-}
-.pagination li.active {
-  color: #fff;
-  border-color: #1476d1;
-  background-color: #1476d1;
+  ul{
+    text-align: center;
+    li {
+      display: inline-block;
+      cursor: pointer;
+      user-select: none;
+      margin: 0 5px;
+      @include radius(3px);
+      span {
+        display: block;
+        padding: 3px 6px;
+        font-weight: normal;
+      }
+      &:hover,&.active {
+        color: #fff;
+        @include theme_bd(primary);
+        @include theme_bg(primary);
+      }
+    }
+  }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div id="TheMenu">
+    <div class="theMenu">
         <ul class="flex-middle">
             <!-- <li v-for="nav in navs" v-bind:class="classObj" v-bind:key="nav.id">{{ nav.title }}</li> -->
           <li><router-link to="/home">home</router-link></li>
@@ -19,14 +19,15 @@ export default {
 
 
 <style lang="scss" scoped>
-#TheMenu {
-  @include bg_color($bg-color-theme);
+.theMenu {
+    width: 100%;
+    @include theme_bg(primary);
 }
-#TheMenu ul {
-  width: 100%;
-  align-items: center;
+.theMenu ul {
+    width: 1200px;
+    margin: 0 auto;
 }
-#TheMenu ul li {
+.theMenu ul li {
   flex: 1;
   height: 50px;
   line-height: 50px;
@@ -34,17 +35,17 @@ export default {
   font-size: 15px;
   color: #fff;
 }
-#TheMenu li a {
+.theMenu li a {
   font-size: 15px;
   color: #fff;
   display: block;
 }
-#TheMenu li a:hover {
-  background-color: rgba(0,0,0,0.2);
+.theMenu li a:hover {
+  background: rgba(#fff,0.1);
 }
-#TheMenu li a.router-link-active {
+.theMenu li a.router-link-active {
   cursor: pointer;
-  background-color: #0154a4;
+  @include theme_bg(primary-dark);
 }
 
 </style>

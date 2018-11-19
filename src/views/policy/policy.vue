@@ -1,11 +1,17 @@
 <template>
-  <div class="policy">
-    <h1>政策服务</h1>
-    <div class="search lu-flex">
-      <input type="text" v-model="keyword" placeholder="请输入关键字" />
-      <button type="button" @click="mySearch(keyword)">搜...索</button>
-    </div>
-    <list-zcfw :listKeyWord='postkeyword'></list-zcfw>
+  <div class="policy pages">
+    <header>
+      <div class="box flex-middle">
+        <h1>政策服务<span>@this:主要负责介绍政策相关服务内容</span></h1>
+        <div class="search flex">
+          <input type="text" v-model="keyword"/>
+          <button type="button" @click="mySearch(keyword)">搜...索</button>
+        </div>
+      </div>
+    </header>
+    <section>
+      <list-zcfw :listKeyWord='postkeyword'></list-zcfw>
+    </section>
   </div>
 </template>
 
@@ -36,12 +42,5 @@ export default {
 
 
 
-<style>
-.policy {
-  padding: 20px;
-}
-.policy .search input {
-  flex: 1;
-  margin: 20px 0;
-}
+<style lang="scss" scoped>
 </style>
