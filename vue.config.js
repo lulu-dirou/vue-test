@@ -31,6 +31,7 @@ module.exports = {
     proxy: {
       '/api': {
         target: 'http://183.237.175.100:3333/GEService/',
+        //target: 'http://192.168.5.204:8080/GEService/',
         // secure: false,  // 如果是https接口，需要配置这个参数
         changeOrigin: true,
         pathRewrite: {

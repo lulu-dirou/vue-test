@@ -1,56 +1,110 @@
 <template>
-    <div id="TheHead" class="flex">
-        <div class="logo"></div>
-        <div class="msg">
-            <div>{{ title }}</div>
-            <div>作者{{ author }}</div>
-        </div>
-        <div class="box">
-            
-            <p @click="changeTheme('theme1')">11</p>
-            <p @click="changeTheme('theme2')">22</p>
-            <p @click="changeTheme('theme3')">33</p>
-        </div>
+  <header class="theHead">
+    <div class="box flex-middle">
+      <div class="logo">
+        <h1>佛山市政企大数据分析服务中心</h1>
+        <p>FOSHAN CITY SERVICE CENTER OF ENTERPRISE BIG DATA ANALYSIS</p>
+      </div>
+      <div class="user flex-middle">
+        <span class="login">点击登录</span>
+        <span class="img"></span>
+        <span class="name">张三</span><em>|</em>
+        <span class="set">个人中心</span><em>|</em>
+        <span class="color flex-middle">
+          <i 
+            v-for="(color,index) in colors" 
+            :key="color.id" 
+            @click="changeTheme (color) " 
+            :class="colorCur===index+1?'active':''"
+          >{{ color }}</i>
+        </span><em>|</em>
+        <span class="logout">退出</span>
+      </div>
     </div>
+  </header>
 </template>
 
 
 <script >
 export default {
-    name: 'TheHead',
-    data(){
-        return {
-            title: 'xing-se.com.cn',
-            author: 'lulehe',
-        }
-    },
-    methods: {
-        changeTheme (theme) {
-          window.document.documentElement.setAttribute('data-theme', theme)
-        }
-      },
+  data(){
+    return {
+      colors: [1,2,3,4],
+      colorCur: 1
+    }
+  },
+  methods: {
+    changeTheme (val) {
+      var vals = val - 1;
+      if (vals==0) {
+        vals = ''
+      }
+      window.document.documentElement.setAttribute('data-theme', 'theme'+vals);
+      this.colorCur = val
+    }
+  },
+  computed: {
+
+  }
 }
 </script>
 
 
 <style lang="scss" scoped>
-    #TheHead {
-        width: 100%;
-        height: 80px;
-        padding: 10px;
-        align-items: center;
-        color: #fff;
-        @include theme_bg(neutral);
+.theHead {
+  @include theme_font(neutral-content);
+  background-color: #fff;
+  .box {
+    width: 1200px;
+    height: 80px;
+    margin: 0 auto;
+    .logo {
+      flex: 1;
+      @include theme_font(neutral);
+      p {
+        font-size: 12px;
+      }
     }
-    #TheHead .logo {
-        width: 60px;
-        height: 60px;
-        border-radius: 100%;
-        background-color: #999;
+    .user {
+      em {
+        margin: 0 10px;
+        color: #ccc;
+      }
+      .login {
+        cursor: pointer;
+        @include theme_font(info);
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      .img {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+        @include radius(40px);
+        background-color: #ccc;
+      }
+      .name {
+        font-weight: 600;
+        @include theme_font(info);
+      }
+      .color {
+        i {
+          width: 20px;
+          height: 20px;
+          line-height: 20px;
+          margin: 0 5px;
+          text-align: center;
+          @include radius(20px);
+          background-color: #e1e1e1;
+          cursor: pointer;
+          &.active {
+            color: #fff;
+            @include theme_bg(primary);
+          }
+        }
+      }
     }
-    #TheHead .box{
-        flex: 0 0 200px;
-        height: 100%;
-        background-color: rgba(0,0,0,0.2);
-    }
+  }
+}
 </style>

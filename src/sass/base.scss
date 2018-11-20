@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     list-style: none;
+    font-style: normal;
     text-decoration: none;
     outline: none;
     box-sizing: border-box;
@@ -42,6 +43,30 @@
     user-select: none;
 }
 
+//********************************
+//
+// button
+//
+//********************************
+.btn {
+  border: 1px solid #e1e1e1;
+  background: none;
+  padding: 7px 10px;
+  font-size: $font-size-df;
+  color: #666;
+  &.btn-xs {
+    font-size: $font-size-sm;
+    padding: 1px 2px;
+  }
+  &.btn-sm {
+    font-size: $font-size-sm;
+    padding: 4px 6px;
+  }
+  &.btn-lg {
+    font-size: $font-size-lg;
+    padding: 10px 24px;
+  }
+}
 
 
 
@@ -113,42 +138,96 @@ a {
 }
 
 //
+// list-2
+//
+.list-2 li {
+  padding: 10px 0;
+  border-bottom: 1px solid #e1e1e1;
+  @include theme_bd(neutral-divider);
+  &:hover {
+    background-color: rgba(#999,0.05);
+  }
+  .msg-box {
+    flex: 1;
+    .title {
+      margin: 10px 0;
+      font-size: $font-size-dfx;
+      @include theme_font(neutral-content);
+      @include lines($line:1);
+    }
+    .math {
+      @include theme_font(primary);
+      b {
+        font-size: 24px;
+      }
+    }
+    .min {
+      span {
+        font-size: $font-size-sm;
+        @include theme_font(neutral-content,0.6);
+      }
+      .min-label {
+        margin-right: 5px;
+        @include theme_font(info);
+      }
+    }
+  }
+  .sub-box {
+    button {
+      margin-left: 10px;
+      @include radius(100px);
+    }
+    .time {
+      @include theme_bd(primary);
+      @include theme_font(primary);
+      background-color: #fff;
+    }
+    .tag {
+      color: #fff;
+      @include theme_bd(primary);
+      @include theme_bg(primary);
+    }
+  }
+}
+
+//
 // pages
 //
 .pages {
   header {
     padding: 40px 0;
-    border-top: 1px solid rgba(#fff,0.4);
-    @include theme_bg(primary);
+    background-color: #fff;
     .box {
       width: 1200px;
       margin: 0 auto;
       h1 {
         flex: 1;
         font-size: 30px;
-        color: #fff;
+        font-weight: normal;
+        @include theme_font(neutral-content);
         span {
           display: block;
           font-weight: normal;
           font-size: $font-size-df;
-          color: rgba(#fff,0.8);
         }
       }
       .search {
+        @include shadow($blur:20px);
         input {
           width: 300px;
           height: 40px;
           padding: 0 10px;
-          border:0;
-          color: #fff;
-          background-color: rgba(#000,0.2);
+          border: 1px solid #e1e1e1;
+          @include theme_bd(primary);
+          background-color: #fff;
         }
         button {
           width: 100px;
           height: 40px;
           border: 0;
           color: #fff;
-          @include theme_bg(info);
+          font-size: $font-size-dfx;
+          @include theme_bg(primary);
           cursor: pointer;
         }
       }

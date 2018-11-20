@@ -1,9 +1,7 @@
 <template>
   <div id="MyVue">
     <the-head></the-head>
-    <div class="menu clear">
-      <the-menu></the-menu>
-    </div>
+    <the-menu></the-menu>
     <div class="content"> 
       <router-view></router-view>
     </div>
