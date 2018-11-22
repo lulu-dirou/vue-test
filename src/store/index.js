@@ -1,15 +1,16 @@
-import Vue from 'vue'; 
-import Vuex from 'vuex';
-
-// 需要注册vuex到vue中
-Vue.use(Vuex);
-
-
-import xSearch from './modules/xSearch.js';//引入xSearch对象
+// 依赖包
+import Vue from 'vue' 
+import Vuex from 'vuex'
+Vue.use(Vuex) //调用Vuex
 
 
-// 注意这里输出的是vuex的store实例对象,main.js引用的时候注意
-export default new Vuex.Store({
+// 引入自建js
+import xSearch from './modules/xSearch.js' //引入xSearch对象
+import xLogin from './modules/xLogin.js' //引入xLogin对象
+
+
+// 创建Vuex实例
+const instance = new Vuex.Store({
   state: {
   },
   getters: {
@@ -19,8 +20,11 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
-    xSearch
+    xSearch,
+    xLogin
   }
 })
+
+export default instance
 
 

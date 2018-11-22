@@ -1,25 +1,36 @@
+// 依赖包
 import 'babel-polyfill'//转码支持ES6
 import Vue from 'vue'
-import Main from './main.vue'
-import router from './router/index.js'//引入路由
-import store from './store/index.js'//引入store(vuex)
+import Md5 from 'js-md5'
+
+
+// 自建js
+import Router from './router/index.js' //引入配置路由,需要挂载点注册
+import Store from './store/index.js' //引入配置vuex(store),需要挂载点注册
+import Http from './api/http.js' //axios,导入封装好的http对象
+import Url from './api/url.js' //axios,导入封装好的url对象
+
+
+// CSS
 import './sass/base.scss' //引用scss,全局变量文件mixin需要在vue.config.js配置
 
 
-//引入axios
-import axios from 'axios'
-import http from './api/http.js'
-import url from './api/url.js'
-Vue.prototype.$http = http
-Vue.prototype.$url = url
+// 组件
+import Main from './main.vue'
 
 
-
+//Vue全局引用
+Vue.prototype.$http = Http
+Vue.prototype.$url = Url
+Vue.prototype.$md5 = Md5
 Vue.config.productionTip = false
 
+
+//创建挂载点
 new Vue({
-  router,//引用router
-  axios,//引用axios
-  store,//引用store(vuex)
-  render: h => h(Main),
+  router: Router,//注册router
+  store: Store,//注册store(vuex)
+  render: function(createElement){
+    return createElement(Main)
+  }
 }).$mount('#myProject')

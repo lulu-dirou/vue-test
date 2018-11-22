@@ -37,7 +37,7 @@ export default {
   components: {
     'login':Login,
   },
-  data: function(){
+  data(){
     return {
       loginShow : false,
       colors: [1,2,3,4],
@@ -47,25 +47,36 @@ export default {
     }
   },
   methods: {
-    changeTheme: function(val) {
+    changeTheme(val) {
       var vals = val - 1
-      if (vals==0) { vals = ''}
+      if (vals==0) {
+        vals = '';
+      }
       window.document.documentElement.setAttribute('data-theme', 'theme'+vals)
       this.colorCur = val
     },
-    ModelCtr: function(val){
+    ModelCtr(val){
       if(val == false){
         this.loginShow = val;
       }else{
         this.loginShow = true;
       }
     },
-    logouted: function(){
+    logouted(){
       this.$store.commit('logout');
       alert("已退出登录");
       this.showMsg = true;
       this.showMsged = false;
     },
+    // msgChange(val){
+    //   if(this.$store.state.xLogin.token) {
+    //     this.showMsg = val;
+    //     this.showMsged = true;
+    //   }else {
+    //     this.showMsg = true;
+    //     this.showMsged = false;
+    //   }
+    // },
     msgChange: function(val){
       if(this.$store.state.xLogin.token) {
         this.showMsg = val;
@@ -77,11 +88,14 @@ export default {
     }
   },
   computed: {
+    // qymc(){
+    //   return this.$store.state.xLogin.user
+    // }
     qymc: function(){
       return this.$store.state.xLogin.user
     }
   },
-  created: function(){
+  created() {
     this.msgChange();
   }
 }

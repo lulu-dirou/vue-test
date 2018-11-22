@@ -38,3 +38,14 @@
 
 #   cnpm install sass-loader node-sass -D
     //安装sass,全局需要在vue.config.js引用
+
+
+#   cnpm install --save js-md5
+    //安装MD5加密
+
+
+#   import
+    //用法  import引入依赖包，不需要相对路径，自己写的js文件则需要相对路径
+
+
+             
