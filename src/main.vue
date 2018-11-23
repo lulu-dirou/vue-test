@@ -1,5 +1,6 @@
 <template>
   <div id="MyVue">
+    <base-loading></base-loading>
     <the-head></the-head>
     <the-menu></the-menu>
     <div class="content"> 
@@ -9,12 +10,14 @@
 </template>
 
 <script>
+import BaseLoading from './components/BaseLoading'
 import TheHead from './components/TheHead.vue'
 import TheMenu from './components/TheMenu.vue'
 
 export default {
   name: 'MyVue',
   components: {
+    'base-loading':BaseLoading,
     'the-head':TheHead,
     'the-menu':TheMenu,
   },

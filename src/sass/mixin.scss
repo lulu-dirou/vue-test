@@ -130,6 +130,30 @@
 }
 
 
+//动画keyframes生成
+@mixin animation($name:all,$duration:1s,$move:ease-in-out,$delay:0.01s,$count:infinite){
+    -webkit-animation: $name $duration $move $delay $count;
+    -moz-animation: $name $duration $move $delay $count;
+    -ms-animation: $name $duration $move $delay $count;
+    animation: $name $duration $move $delay $count;
+}
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+    @-o-keyframes #{$name} {
+        @content;
+    }
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+
+
 // 封装函数设置各状态颜色
 // 通过setAttribute添加属性data-theme挂载到最外层页面html根节点上来判断选择哪个主题颜色
 // 文字颜色

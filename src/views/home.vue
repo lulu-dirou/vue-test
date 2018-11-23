@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <base-loading></base-loading>
+    <!-- <base-loading></base-loading> -->
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
    <!--  <HelloWorld msg="Welcome to Your Vue.js App"/> -->
    home!!!!!!!!!!
@@ -9,12 +9,12 @@
 </template>
 
 <script>
-import BaseLoading from '../components/BaseLoading'
+// import BaseLoading from '../components/BaseLoading'
 
 export default {
-  components: {
-    BaseLoading
-  },
+  // components: {
+  //   BaseLoading
+  // },
   data: function(){
     return {
       results:[]

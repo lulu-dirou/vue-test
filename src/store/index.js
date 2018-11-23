@@ -7,6 +7,7 @@ Vue.use(Vuex) //调用Vuex
 // 引入自建js
 import xSearch from './modules/xSearch.js' //引入xSearch对象
 import xLogin from './modules/xLogin.js' //引入xLogin对象
+import xLoading from './modules/xLoading.js' //引入xLoading对象
 
 
 // 创建Vuex实例
@@ -21,7 +22,8 @@ const instance = new Vuex.Store({
   },
   modules: {
     xSearch,
-    xLogin
+    xLogin,
+    xLoading
   }
 })
 

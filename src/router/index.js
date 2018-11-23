@@ -36,15 +36,19 @@ const instance = new VueRouter({
     },
     {
       path: "/policy",
-      meta: {
-        requireAuth: true,  //添加该字段，表示进入这个路由是需要登录的
-      },
-      component: Policy
+      component: Policy,
+      meta: { requireAuth: true }, //添加该字段，表示进入这个路由是需要登录的
+      children: [
+        {
+          path: "policyArticleInfo",
+          component: policyArticleInfo
+        }
+      ]
     },
-    {
-      path: "/policyArticleInfo",
-      component: policyArticleInfo
-    },
+    // {
+    //   path: "/policyArticleInfo",
+    //   component: policyArticleInfo
+    // },
     {
       path: "/message",
       component: Message
