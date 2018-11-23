@@ -3,7 +3,7 @@
     <div class="bd">
       <ul class="list-1">
         <li v-for="list in lists" :key="list.id">
-          <router-link class="flex" v-bind:to="{path:'/policyArticleInfo',query:{id:list.id}}">
+          <router-link class="flex" v-bind:to="{path:'/policy/article',query:{id:list.id}}">
             <div class="dot-box"><span class="arrow"></span></div>
             <div class="msg-box">
               <div class="msg-title-max"><span>{{ list.zcly }}</span></div>

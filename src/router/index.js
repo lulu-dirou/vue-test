@@ -13,9 +13,14 @@ import Home from "../views/home.vue";
 import Appeal from "../views/appeal/appeal.vue";
 import Declare from "../views/declare/declare.vue";
 import Policy from "../views/policy/policy.vue";
-import policyArticleInfo from "../views/policy/policyArticleInfo";
+  import Article from "../views/policy/article";
 import Message from "../views/message/message.vue";
 import Member from "../views/member/member.vue";
+  import BaseMsg from "../views/member/baseMsg.vue";
+  import Push from "../views/member/push.vue";
+  import Fav from "../views/member/fav.vue";
+  import MyLive from "../views/member/myLive.vue";
+  import Setting from "../views/member/setting.vue";
 
 
 // 创建Router实例
@@ -38,24 +43,45 @@ const instance = new VueRouter({
       path: "/policy",
       component: Policy,
       meta: { requireAuth: true }, //添加该字段，表示进入这个路由是需要登录的
-      children: [
-        {
-          path: "policyArticleInfo",
-          component: policyArticleInfo
-        }
-      ]
     },
-    // {
-    //   path: "/policyArticleInfo",
-    //   component: policyArticleInfo
-    // },
+    {
+      path: "/policy/article",
+      component: Article
+    },
     {
       path: "/message",
       component: Message
     },
     {
       path: "/member",
-      component: Member
+      component: Member,
+      meta: { requireAuth: true },
+      children: [
+        {
+          path: "/member/baseMsg",
+          component: BaseMsg
+        },
+        {
+          path: "/member/push",
+          component: Push
+        },
+        {
+          path: "/member/fav",
+          component: Fav
+        },
+        {
+          path: "/member/myLive",
+          component: MyLive
+        },
+        {
+          path: "/member/setting",
+          component: Setting
+        },
+        {
+          path: "/",//重定向，默认显示
+          redirect: "/member/baseMsg"
+        }
+      ]
     },
     {
       path: "/",//重定向，默认显示

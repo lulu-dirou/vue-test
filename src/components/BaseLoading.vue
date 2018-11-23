@@ -1,7 +1,7 @@
 <template>
   <div class="loading-box" v-if="this.$store.state.xLoading.loading">
     <div class="loading flex-middle">
-      loading...
+      <div>loading</div>
       <div class="ball"></div>
     </div>
   </div>
@@ -23,6 +23,7 @@ export default {
   top: 0;
   bottom: 0;
   .loading {
+    flex-direction: column;
     position: absolute;
     left: 50%;
     top: 50%;

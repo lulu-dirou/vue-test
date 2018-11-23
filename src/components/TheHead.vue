@@ -11,7 +11,7 @@
       <div class="user flex-middle" v-if="showMsged">
         <span class="img"></span>
         <span class="name">{{ qymc }}</span><em>|</em>
-        <span class="set">个人中心</span><em>|</em>
+        <span class="set"><router-link to="/member">个人中心</router-link></span><em>|</em>
         <span class="color flex-middle">
           <i 
             v-for="(color,index) in colors" 
@@ -143,6 +143,10 @@ export default {
             @include theme_bg(primary);
           }
         }
+      }
+      .set .router-link-active {
+        font-weight: 600;
+        @include theme_font(primary);
       }
     }
   }

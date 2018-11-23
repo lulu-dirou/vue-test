@@ -14,6 +14,13 @@
 
 <script >
 export default {
+  mounted: function(){
+    const a = 34;
+    const b = 21;
+    if(a == b){
+      console.log(121212)
+    }
+  }
 }
 </script>
 
