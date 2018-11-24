@@ -68,7 +68,7 @@ function errStatus(error){
   }else{
     error.message = "连接到 服务器 失败"
   }
-  alert('错误信息：'+error.message)
+  console.log('错误信息：'+error.message)
 }
 
 
@@ -77,7 +77,16 @@ function errStatus(error){
 // 对请求错误做些什么
 instance.interceptors.request.use(
   function(config){
+    //headers都加上Content-Type
+    config.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
+    //判断是否存在token,则header都加上token
+    if(Store.state.xLogin.token){
+      config.headers.Authorization = `token ${Store.state.xLogin.token}`;
+      config.headers.token = Store.state.xLogin.token
+    }
+    //显示loading
     Store.state.xLoading.loading = true;
+    //测试loading方法
     showLoading();
     return config
   },
@@ -126,8 +135,7 @@ export default {
       instance({
         method:'post',
         url: url,
-        data: Qs.stringify(data), 
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' }
+        data: Qs.stringify(data)
       }).then(res=>{
         resolve(res);
       }).catch(err=>{

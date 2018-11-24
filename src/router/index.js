@@ -59,27 +59,33 @@ const instance = new VueRouter({
       children: [
         {
           path: "/member/baseMsg",
-          component: BaseMsg
+          component: BaseMsg,
+          meta: { requireAuth: true }
         },
         {
           path: "/member/push",
-          component: Push
+          component: Push,
+          meta: { requireAuth: true }
         },
         {
           path: "/member/fav",
-          component: Fav
+          component: Fav,
+          meta: { requireAuth: true }
         },
         {
           path: "/member/myLive",
-          component: MyLive
+          component: MyLive,
+          meta: { requireAuth: true }
         },
         {
           path: "/member/setting",
-          component: Setting
+          component: Setting,
+          meta: { requireAuth: true }
         },
         {
           path: "/",//重定向，默认显示
-          redirect: "/member/baseMsg"
+          redirect: "/member/baseMsg",
+          meta: { requireAuth: true }
         }
       ]
     },

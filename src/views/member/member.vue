@@ -3,7 +3,7 @@
     <div class="left">
       <div class="msg-box flex-middle">
         <span class="userImg"><img src="../../common/images/userImg.png" alt=""></span>
-        <span class="userName">广东奥博</span>
+        <span class="userName">{{ this.$store.state.xLogin.user }}</span>
       </div>
       <nav>
         <ul>
@@ -84,6 +84,7 @@ export default {
   }
   .right {
     flex: 1;
+    padding: 50px;
     background-color: #fff;
   }
 }
