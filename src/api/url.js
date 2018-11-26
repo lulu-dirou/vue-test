@@ -1,7 +1,8 @@
 export default {
   qyzcxx: {
     getQyxxzl: '/qyfwpt/xtgl/GeFQyxxzl/getQyxxzl', //企业详细信息
-    login: '/qyfwpt/xtgl/geQyzcxx/login' //用户登录
+    login: '/qyfwpt/xtgl/geQyzcxx/login', //用户登录
+    getQytx: '/qyfwpt/xtgl/geQyzcxx/getQytx' //获取企业头像
   },
   zcfw: {
     getZcfw: '/qyfwpt/zcfw/getZcfw', // 获取政策服务明细

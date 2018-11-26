@@ -115,13 +115,14 @@ instance.interceptors.response.use(
 
 
 export default {
-  // 封装get请求
-  get: function(url,data){
+  // 封装get请求(@接口地址,@接口参数,@服务器响应的数据类型,默认json,图片流用arraybuffer)
+  get: function(url,data,json){
     return new Promise((resolve,reject)=>{
       instance({
         method:'get',
         url: url,
-        data: Qs.stringify(data)
+        data: Qs.stringify(data),
+        responseType: json
       }).then(res=>{
         resolve(res);     
       }).catch(err=>{
@@ -129,13 +130,14 @@ export default {
       })
     })
   },
-  // 封装post请求
-  post: function(url,data){
+  // 封装post请求(@接口地址,@接口参数,@服务器响应的数据类型,默认json,图片流用arraybuffer)
+  post: function(url,data,json){
     return new Promise((resolve,reject)=>{
       instance({
         method:'post',
         url: url,
-        data: Qs.stringify(data)
+        data: Qs.stringify(data),
+        responseType: json
       }).then(res=>{
         resolve(res);
       }).catch(err=>{

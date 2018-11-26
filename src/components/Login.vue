@@ -56,9 +56,20 @@ export default {
             this.$store.commit('getUser', res.data.body.qyzcxx.qymc);
             this.modelClose(); //关闭窗口
             this.$emit('emitMsgChange',false); //传给父组件
-            this.$router.push("./home"); //跳转到路由指定页面
+            this.getUserImgApi();
+            //this.$router.push("./home"); //跳转到路由指定页面
           }
         }
+      })
+    },
+    //获取头像API放到getApi里面调用,注意设置图片请求类型arraybuffer
+    getUserImgApi: function(){
+      this.$http.post(this.$url.qyzcxx.getQytx,{
+        token: this.$store.state.xLogin.token,
+      },'arraybuffer').then((res) => {
+        //图片流转码
+        var src = 'data:image/png;base64,'+ btoa(new Uint8Array(res.data).reduce((data, byte) => data + String.fromCharCode(byte), ''));
+        this.$store.commit('getUserImg', src);
       })
     }
   }

@@ -9,7 +9,7 @@
         <span class="dl" v-on:click="ModelCtr">点击登录</span>
       </div>
       <div class="user flex-middle" v-if="showMsged">
-        <span class="img"></span>
+        <span class="img"><img v-bind:src="this.$store.state.xLogin.userImg"></span>
         <span class="name">{{ qymc }}</span><em>|</em>
         <span class="set"><router-link to="/member">个人中心</router-link></span><em>|</em>
         <span class="color flex-middle">
@@ -124,6 +124,10 @@ export default {
         margin-right: 10px;
         @include radius(40px);
         background-color: #ccc;
+        img {
+          width: 40px;
+          height: 40px;
+        }
       }
       .name {
         font-weight: 600;

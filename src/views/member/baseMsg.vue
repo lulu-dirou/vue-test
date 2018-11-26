@@ -2,7 +2,7 @@
   <div class="baseMsg">
     <h1>{{ datas.qymc }}</h1>
     <ul>
-      <li class="flex"><span class="label">统一社会信用代码</span><span class="msg">1</span></li>
+      <li class="flex"><span class="label">统一社会信用代码</span><span class="msg">{{ datas.frdbsfzhm }}</span></li>
       <li class="flex"><span class="label">组织机构代码</span><span class="msg">{{ datas.zzjgdm }}</span></li>
       <li class="flex"><span class="label">注册号</span><span class="msg">1</span></li>
       <li class="flex"><span class="label">经营状态</span><span class="msg">{{ datas.jyfwZx }}</span></li>
@@ -61,7 +61,7 @@ export default {
     @include theme_font(neutral);
   }
   li {
-    padding: 20px 0;
+    padding: 10px 0;
     border-bottom: 1px solid #e1e1e1;
     @include theme_bd(neutral-divider);
     &:last-child {

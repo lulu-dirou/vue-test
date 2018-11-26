@@ -2,7 +2,7 @@
   <div class="member flex">
     <div class="left">
       <div class="msg-box flex-middle">
-        <span class="userImg"><img src="../../common/images/userImg.png" alt=""></span>
+        <span class="userImg"><img v-bind:src="this.$store.state.xLogin.userImg"></span>
         <span class="userName">{{ this.$store.state.xLogin.user }}</span>
       </div>
       <nav>
@@ -11,7 +11,10 @@
           <li><router-link to="/member/push">推送</router-link></li>
           <li><router-link to="/member/fav">收藏夹</router-link></li>
           <li><router-link to="/member/myLive">我的直播</router-link></li>
-          <li><router-link to="/member/setting">个人设置</router-link></li>
+          <li>
+            <router-link to="/member/setting">个人设置</router-link>
+            1111
+          </li>
         </ul>
       </nav>
     </div>

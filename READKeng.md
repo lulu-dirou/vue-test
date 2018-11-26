@@ -42,6 +42,11 @@
 
 #   cnpm install --save js-md5
     //安装MD5加密
+    
+
+#   cnpm install --save js-base64
+#   cnpm install --save @types/js-base64
+    //安装base64图片转码
 
 
 #   import
