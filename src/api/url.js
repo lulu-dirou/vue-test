@@ -8,10 +8,15 @@ export default {
     getZcfw: '/qyfwpt/zcfw/getZcfw', // 获取政策服务明细
     listZcfw: '/qyfwpt/zcfw/listZcfw', // 最新政策列表
     listZcfwSearch: '/qyfwpt/zcfw/searchZcfw', // 最新政策搜索
-    listZcjd: '/qyfwpt/zcfw/listZcjd', // 最新文字解读列表
+    listZcjd: '/qyfwpt/zcfw/listZcjd', // 文字解读（直播解读）
+    listDmjd: '/qyfwpt/zcfw/listDmjd', // 动漫解读（直播解读）
+    getZbDetail: 'qyfwpt/zcfw/getZbDetail', // 直播解读明细
   },
   sbfw: {
     sbzt: '/sbfw/sbfw/sbzt', //申报专题
     sbtz: '/sbfw/sbfw/sbtz', //申报通知
+  },
+  qyhdgl: {
+    listQyhd: '/qyfwpt/qyhd/listQyhd' //最新企业活动列表(政企头条)
   }
 }

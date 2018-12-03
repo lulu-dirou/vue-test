@@ -47,6 +47,14 @@
     -o-box-shadow: inset $x $y $blur $spread $color;
     box-shadow: inset $x $y $blur $spread $color;
 }
+// 文字阴影
+@mixin text-shadow($x:0, $y:2px, $blur:10px, $color:rgba(#000,0.5)){
+    -webkit-text-shadow: $x $y $blur $color;
+    -moz-text-shadow: $x $y $blur $color;
+    -ms-text-shadow: $x $y $blur $color;
+    -o-text-shadow: $x $y $blur $color;
+    text-shadow: $x $y $blur $color;
+}
 
 
 // 透明度

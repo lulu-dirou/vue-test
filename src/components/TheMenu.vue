@@ -2,7 +2,7 @@
   <nav class="theMenu">
     <ul class="flex-middle">
         <!-- <li v-for="nav in navs" v-bind:class="classObj" v-bind:key="nav.id">{{ nav.title }}</li> -->
-      <li><router-link to="/home">主页</router-link></li>
+      <li><router-link to="/home">首页</router-link></li>
       <li><router-link to="/appeal">诉求</router-link></li>
       <li><router-link to="/declare">申报</router-link></li>
       <li><router-link to="/policy">政策</router-link></li>
@@ -40,7 +40,7 @@ export default {
         a {
           display: block;
           color: #fff;
-          font-size: $font-size-lg;
+          font-size: $font-size-lgx;
           cursor: pointer;
           &:hover {
             background: rgba(#fff,0.1);

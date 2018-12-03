@@ -10,6 +10,7 @@ import store from '../store/index.js' //引入封装vuex(store)
 
 // 引入组件
 import Home from "../views/home.vue";
+  import Child from "../views/child.vue";
 import Appeal from "../views/appeal/appeal.vue";
 import Declare from "../views/declare/declare.vue";
 import Policy from "../views/policy/policy.vue";
@@ -32,6 +33,10 @@ const instance = new VueRouter({
       component: Home
     },
     {
+      path: "/child",
+      component: Child
+    },
+    {
       path: "/appeal",
       component: Appeal
     },
@@ -42,7 +47,7 @@ const instance = new VueRouter({
     {
       path: "/policy",
       component: Policy,
-      meta: { requireAuth: true }, //添加该字段，表示进入这个路由是需要登录的
+      //meta: { requireAuth: true }, //添加该字段，表示进入这个路由是需要登录的
     },
     {
       path: "/policy/article",

@@ -2,11 +2,11 @@
   <header class="theHead">
     <div class="box flex-middle">
       <div class="logo">
-        <h1>佛山市政企大数据分析服务中心</h1>
-        <p>FOSHAN CITY SERVICE CENTER OF ENTERPRISE BIG DATA ANALYSIS</p>
+        <img src="../common/images/logo.png" alt="500*80">
       </div>
       <div class="user flex-middle" v-if="showMsg">
-        <span class="dl" v-on:click="ModelCtr">点击登录</span>
+        <button class="btn btn-lg dl" v-on:click="ModelCtr">登录</button>
+        <button class="btn btn-lg zc">注册</button>
       </div>
       <div class="user flex-middle" v-if="showMsged">
         <span class="img"><img v-bind:src="this.$store.state.xLogin.userImg"></span>
@@ -98,12 +98,16 @@ export default {
     margin: 0 auto;
     .logo {
       flex: 1;
-      @include theme_font(neutral);
-      p {
-        font-size: 12px;
+      font-size: 0;
+      img {
+        height: 80px;
       }
     }
     .user {
+      button {
+        margin-left: 10px;
+        @include radius(2px);
+      }
       span {
         cursor: pointer;
       }
@@ -112,11 +116,8 @@ export default {
         color: #ccc;
       }
       .dl {
-        cursor: pointer;
-        @include theme_font(info);
-        &:hover {
-          text-decoration: underline;
-        }
+        @include theme_font(primary-dark);
+        @include theme_bd(primary-dark);
       }
       .img {
         width: 40px;

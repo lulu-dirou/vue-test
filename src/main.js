@@ -9,6 +9,7 @@ import Router from './router/index.js' //引入配置路由,需要挂载点注�
 import Store from './store/index.js' //引入配置vuex(store),需要挂载点注册
 import Http from './api/http.js' //axios,导入封装好的http对象
 import Url from './api/url.js' //axios,导入封装好的url对象
+import Common from './common/js/common.js' //导入公用方法
 
 
 // CSS
@@ -23,6 +24,7 @@ import Main from './main.vue'
 Vue.prototype.$http = Http
 Vue.prototype.$url = Url
 Vue.prototype.$md5 = Md5
+Vue.prototype.$common = Common
 Vue.config.productionTip = false
 
 

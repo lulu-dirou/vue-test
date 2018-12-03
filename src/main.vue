@@ -1,11 +1,12 @@
 <template>
-  <div id="MyVue">
+  <div class="main">
     <base-loading></base-loading>
     <the-head></the-head>
     <the-menu></the-menu>
-    <div class="content"> 
+    <div class="theContent clear"> 
       <router-view></router-view>
     </div>
+    <the-footer></the-footer>
   </div>
 </template>
 
@@ -13,13 +14,14 @@
 import BaseLoading from './components/BaseLoading'
 import TheHead from './components/TheHead.vue'
 import TheMenu from './components/TheMenu.vue'
+import TheFooter from './components/TheFooter.vue'
 
 export default {
-  name: 'MyVue',
   components: {
     'base-loading':BaseLoading,
     'the-head':TheHead,
     'the-menu':TheMenu,
+    'the-footer':TheFooter,
   },
   created: function(){
     //默认加载主题
@@ -35,4 +37,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.main {
+  min-width: 1200px;
+  .theContent {
+    background-color: #f2f4f5;
+  }
+}
 </style>
