@@ -18,10 +18,10 @@
         </div>
       </div>
       <div class="right">
-        <list-qyhd v-if="num===0?'true':''" class="list-3-chlid"></list-qyhd>
-        <list-zxzc v-if="num===1?'true':''"></list-zxzc>
-        <list-zcdmjd v-if="num===2?'true':''"></list-zcdmjd>
-        <list-zczb v-if="num===3?'true':''" class="list-4-child"></list-zczb>
+        <list-qyhd v-if="num===0?'true':''" class="list-3-child" :thePageShow="true"></list-qyhd>
+        <list-zxzc v-if="num===1?'true':''" class="list-1-child" :thePageShow="true"></list-zxzc>
+        <list-zcdmjd v-if="num===2?'true':''" class="list-4-child" :thePageShow="true"></list-zcdmjd>
+        <list-zczb v-if="num===3?'true':''" class="list-4-child" :thePageShow="true"></list-zczb>
       </div>
     </div>
   </div>
@@ -73,10 +73,10 @@ export default {
 
 <style lang="scss">
 .child {
+  background: url(../common/images/child-full-bg.png) center 0 no-repeat;
   position: relative;
   .search-box {
     width: 100%;
-    background: url(../common/images/child-full-bg.jpg) center 0 no-repeat;
     .search-mid {
       position: relative;
       width: 1200px;
@@ -105,14 +105,14 @@ export default {
       .navigation {
         li {
           position: relative;
-          height: 50px;
-          line-height: 50px;
+          height: 40px;
+          line-height: 40px;
           padding-left: 20px;
           margin-bottom: 10px;
-          font-size: $font-size-lg;
+          font-size: $font-size-dfx;
           background-color: #f2f4f6;
           cursor: pointer;
-        @include transition(0.1s);
+          @include transition(0.1s);
           @include theme_font(neutral-content);
           &:hover {
             color: #fff;
@@ -137,6 +137,7 @@ export default {
     .right {
       flex: 1;
       padding: 40px;
+      min-height: 500px;
     }
   }
 }

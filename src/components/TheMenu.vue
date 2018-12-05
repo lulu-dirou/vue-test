@@ -43,10 +43,10 @@ export default {
           font-size: $font-size-lgx;
           cursor: pointer;
           &:hover {
-            background: rgba(#fff,0.1);
+            @include theme_bg(primary-dark);
           }
           &.router-link-active {
-            @include theme_bg(primary-dark);
+            @include theme_bg(primary-light);
           }
         }
       }

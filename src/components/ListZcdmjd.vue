@@ -13,17 +13,25 @@
       </li>
       <li v-if="noData">没有找到你要的结果！</li>
     </ul>
+    <the-page
+      :total="listTotal"
+      :pageSize="listPageSize"
+      :show="thePageShow"
+      @pageChange="listPageChange"></the-page>
   </div>
 </template>
 
 
 <script >
+import ThePage from './ThePage.vue'
 
 export default {
   components: {
+    'the-page': ThePage
   },
   data: function(){
     return {
+      listTotal: 100,
       listPageSize: 10,
       listPageNo: 1,
       lists: [],
@@ -34,7 +42,8 @@ export default {
     }
   },
   props: {
-    popListSize: Number
+    popListSize: Number,
+    thePageShow: Boolean
   },
   computed: {
     filterLists: function(){
@@ -47,7 +56,8 @@ export default {
         pageSize: this.listPageSize,
         pageNo: this.listPageNo
       }).then((res) => {
-        this.lists = res.data.body.list
+        this.lists = res.data.body.list,
+        this.listTotal = res.data.body.list.length
       })
     },
     getApiImgUrl: function(val){
@@ -62,6 +72,11 @@ export default {
     },
     timeReset: function(val){
       return this.lists[val].fbsj.slice(0,10)
+    },
+    //分页组件获取当对应API方法
+    listPageChange(val) {
+      this.listPageNo = val
+      this.getApi()
     }
   },
   created: function(){

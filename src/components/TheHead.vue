@@ -116,8 +116,8 @@ export default {
         color: #ccc;
       }
       .dl {
-        @include theme_font(primary-dark);
-        @include theme_bd(primary-dark);
+        @include theme_font(primary-light);
+        @include theme_bd(primary-light);
       }
       .img {
         width: 40px;

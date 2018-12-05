@@ -168,6 +168,7 @@
 @mixin theme_font($sel,$opacity:1){
     [data-theme="theme"] & {
         @if $sel == primary { color: rgba($theme-primary,$opacity); }
+        @else if $sel == primary-light { color: rgba($theme-primary-light,$opacity); }
         @else if $sel == primary-dark { color: rgba($theme-primary-dark,$opacity); }
         @else if $sel == info { color: rgba($theme-info,$opacity); }
         @else if $sel == success { color: rgba($theme-success,$opacity); }
@@ -181,6 +182,7 @@
     }
     [data-theme="theme1"] & {
         @if $sel == primary { color: rgba($theme1-primary,$opacity); }
+        @else if $sel == primary-light { color: rgba($theme1-primary-light,$opacity); }
         @else if $sel == primary-dark { color: rgba($theme1-primary-dark,$opacity); }
         @else if $sel == info { color: rgba($theme1-info,$opacity); }
         @else if $sel == success { color: rgba($theme1-success,$opacity); }
@@ -194,6 +196,7 @@
     }
     [data-theme="theme2"] & {
         @if $sel == primary { color: rgba($theme2-primary,$opacity); }
+        @else if $sel == primary-light { color: rgba($theme2-primary-light,$opacity); }
         @else if $sel == primary-dark { color: rgba($theme2-primary-dark,$opacity); }
         @else if $sel == info { color: rgba($theme2-info,$opacity); }
         @else if $sel == success { color: rgba($theme2-success,$opacity); }
@@ -207,6 +210,7 @@
     }
     [data-theme="theme3"] & {
         @if $sel == primary { color: rgba($theme3-primary,$opacity); }
+        @else if $sel == primary-light { color: rgba($theme3-primary-light,$opacity); }
         @else if $sel == primary-dark { color: rgba($theme3-primary-dark,$opacity); }
         @else if $sel == info { color: rgba($theme3-info,$opacity); }
         @else if $sel == success { color: rgba($theme3-success,$opacity); }
@@ -223,6 +227,7 @@
 @mixin theme_bg($sel,$opacity:1){
     [data-theme="theme"] & {
         @if $sel == primary { background-color: rgba($theme-primary,$opacity); }
+        @else if $sel == primary-light { background-color: rgba($theme-primary-light,$opacity); }
         @else if $sel == primary-dark { background-color: rgba($theme-primary-dark,$opacity); }
         @else if $sel == info { background-color: rgba($theme-info,$opacity); }
         @else if $sel == success { background-color: rgba($theme-success,$opacity); }
@@ -236,6 +241,7 @@
     }
     [data-theme="theme1"] & {
         @if $sel == primary { background-color: rgba($theme1-primary,$opacity); }
+        @else if $sel == primary-light { background-color: rgba($theme1-primary-light,$opacity); }
         @else if $sel == primary-dark { background-color: rgba($theme1-primary-dark,$opacity); }
         @else if $sel == info { background-color: rgba($theme1-info,$opacity); }
         @else if $sel == success { background-color: rgba($theme1-success,$opacity); }
@@ -249,6 +255,7 @@
     }
     [data-theme="theme2"] & {
         @if $sel == primary { background-color: rgba($theme2-primary,$opacity); }
+        @else if $sel == primary-light { background-color: rgba($theme2-primary-light,$opacity); }
         @else if $sel == primary-dark { background-color: rgba($theme2-primary-dark,$opacity); }
         @else if $sel == info { background-color: rgba($theme2-info,$opacity); }
         @else if $sel == success { background-color: rgba($theme2-success,$opacity); }
@@ -262,6 +269,7 @@
     }
     [data-theme="theme3"] & {
         @if $sel == primary { background-color: rgba($theme3-primary,$opacity); }
+        @else if $sel == primary-light { background-color: rgba($theme3-primary-light,$opacity); }
         @else if $sel == primary-dark { background-color: rgba($theme3-primary-dark,$opacity); }
         @else if $sel == info { background-color: rgba($theme3-info,$opacity); }
         @else if $sel == success { background-color: rgba($theme3-success,$opacity); }
@@ -278,6 +286,7 @@
 @mixin theme_bd($sel,$opacity:1){
     [data-theme="theme"] & {
         @if $sel == primary { border-color: rgba($theme-primary,$opacity); }
+        @else if $sel == primary-light { border-color: rgba($theme-primary-light,$opacity); }
         @else if $sel == primary-dark { border-color: rgba($theme-primary-dark,$opacity); }
         @else if $sel == info { border-color: rgba($theme-info,$opacity); }
         @else if $sel == success { border-color: rgba($theme-success,$opacity); }
@@ -291,6 +300,7 @@
     }
     [data-theme="theme1"] & {
         @if $sel == primary { border-color: rgba($theme1-primary,$opacity); }
+        @else if $sel == primary-light { border-color: rgba($theme1-primary-light,$opacity); }
         @else if $sel == primary-dark { border-color: rgba($theme1-primary-dark,$opacity); }
         @else if $sel == info { border-color: rgba($theme1-info,$opacity); }
         @else if $sel == success { border-color: rgba($theme1-success,$opacity); }
@@ -304,6 +314,7 @@
     }
     [data-theme="theme2"] & {
         @if $sel == primary { border-color: rgba($theme2-primary,$opacity); }
+        @else if $sel == primary-light { border-color: rgba($theme2-primary-light,$opacity); }
         @else if $sel == primary-dark { border-color: rgba($theme2-primary-dark,$opacity); }
         @else if $sel == info { border-color: rgba($theme2-info,$opacity); }
         @else if $sel == success { border-color: rgba($theme2-success,$opacity); }
@@ -317,6 +328,7 @@
     }
     [data-theme="theme3"] & {
         @if $sel == primary { border-color: rgba($theme3-primary,$opacity); }
+        @else if $sel == primary-light { border-color: rgba($theme3-primary-light,$opacity); }
         @else if $sel == primary-dark { border-color: rgba($theme3-primary-dark,$opacity); }
         @else if $sel == info { border-color: rgba($theme3-info,$opacity); }
         @else if $sel == success { border-color: rgba($theme3-success,$opacity); }

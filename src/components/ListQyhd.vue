@@ -12,27 +12,42 @@
       </li>
       <li v-if="noSearchData">没有找到你要的结果！</li>
     </ul>
+    <the-page
+      :total="listTotal"
+      :pageSize="listPageSize"
+      :show="thePageShow"
+      @pageChange="listPageChange"></the-page>
   </div>
 </template>
 
 
 <script >
+import ThePage from './ThePage.vue'
 
 export default {
   components: {
+    'the-page': ThePage
   },
   data: function(){
     return {
+      listTotal: 100,
+      listPageSize: 10,
       lists: [],
       noSearchData: false
     }
   },
   props: {
-    popListSize: Number
+    popListSize: Number,
+    thePageShow: Boolean
   },
   computed: {
     filterLists: function(){
       return this.lists.slice(0, this.popListSize)
+    },
+    //分页组件点击截取每页数组数量
+    listPageChange: function(val){
+      var a = (val-1)*this.listPageSize
+      return this.lists.slice(a, a+this.popListSize)
     }
   },
   methods: {
@@ -40,6 +55,7 @@ export default {
       this.$http.post(this.$url.qyhdgl.listQyhd,{
       }).then((res) => {
         this.lists = res.data.body.hdList
+        this.listTotal = res.data.body.hdList.length
       })
     },
     timeReset: function(val){

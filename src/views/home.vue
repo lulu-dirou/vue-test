@@ -1,45 +1,61 @@
 <template>
   <div class="home">
-    <full-slide class="fullSlide"></full-slide>
     <div class="search-box flex-middle">
-      <the-search></the-search>
+      <the-search class="search"></the-search>
     </div>
-    <div class="content flex">
-      <section>
-        <div class="hd clear">
-          <span>政企头条</span>
-          <em @click="more(0)"><router-link to="/child">更多>></router-link></em>
+    <div class="content">
+      <div class="t1">
+        <section class="flex">
+          <div class="slide">
+            <list-slide></list-slide>
+          </div>
+          <div class="t1-box">
+            <div class="hd clear">
+              <span>政企头条</span>
+              <em @click="more(0)"><router-link to="/child">MORE</router-link></em>
+            </div>
+            <div class="bd"><list-qyhd v-bind:popListSize='8'></list-qyhd></div>
+          </div>
+        </section>
+      </div>
+      <div class="t2 flex">
+        <div class="t2-box">
+          <section>
+            <div class="hd clear">
+              <span>最新政策</span>
+              <em @click="more(1)"><router-link to="/child">MORE</router-link></em>
+            </div>
+            <div class="bd"><list-zxzc v-bind:popListSize='3'></list-zxzc></div>
+          </section>
         </div>
-        <div class="bd"><list-qyhd v-bind:popListSize='8'></list-qyhd></div>
-      </section>
-      <section>
-        <div class="hd clear">
-          <span>最新政策</span>
-          <em @click="more(1)"><router-link to="/child">更多>></router-link></em>
+        <div class="t2-box">
+          <section>
+            <div class="hd clear">
+              <span class="tabs">
+                <dl class="clear">
+                  <dd 
+                    v-for="(tab,index) in tabs" 
+                    v-bind:key="tab.id" 
+                    v-bind:class="num===index?'active':''" 
+                    v-on:click="changeActive(index)">{{ tab }}</dd>
+                </dl>
+              </span>
+              <em @click="more(num+2)"><router-link to="/child">MORE</router-link></em>
+            </div>
+            <div class="bd">
+              <list-zczb v-bind:popListSize='3' v-show="num===0?true:''"></list-zczb>
+              <list-zcdmjd v-bind:popListSize='3' v-show="num===1?true:''"></list-zcdmjd>
+            </div>
+          </section>
         </div>
-        <div class="bd"><list-zxzc v-bind:popListSize='3'></list-zxzc></div>
-      </section>
-      <section>
-        <div class="hd clear">
-          <span>政策解读</span>
-          <em @click="more(2)"><router-link to="/child">更多>></router-link></em>
-        </div>
-        <div class="bd"><list-zcdmjd v-bind:popListSize='3'></list-zcdmjd></div>
-      </section>
-      <section>
-        <div class="hd clear">
-          <span>政策直播</span>
-          <em @click="more(3)"><router-link to="/child">更多>></router-link></em>
-        </div>
-        <div class="bd"><list-zczb v-bind:popListSize='3'></list-zczb></div>
-      </section>
+      </div>
     </div>
   </div>
 </template>
 
 
 <script>
-import FullSlide from '../components/FullSlide.vue'
+import ListSlide from '../components/ListSlide.vue'
 import TheSearch from '../components/TheSearch.vue'
 import ListQyhd from '../components/ListQyhd.vue'
 import ListZxzc from '../components/ListZxzc.vue'
@@ -48,7 +64,7 @@ import ListZczb from '../components/ListZczb.vue'
 
 export default {
   components: {
-    'full-slide': FullSlide,
+    'list-slide': ListSlide,
     'the-search': TheSearch,
     'list-qyhd': ListQyhd,
     'list-zxzc': ListZxzc,
@@ -59,6 +75,8 @@ export default {
   },
   data: function() {
     return {
+      tabs:['政策直播','政策解读'],
+      num: 0
     }
   },
   computed: {
@@ -69,6 +87,9 @@ export default {
     more: function(val){
       this.$store.state.xMore.homeMore = val;
       console.log(this.$store.state.xMore.homeMore)
+    },
+    changeActive: function(val){
+      this.num = val;
     }
   },
   created: function(){
@@ -80,46 +101,5 @@ export default {
 
 
 <style lang="scss" scoped>
-.home {
-  position: relative;
-  .search-box {
-    position: absolute;
-    left: 50%;
-    top: 150px;
-    margin-left: -600px;
-    width: 1200px;
-    justify-content: flex-end;
-  }
-  .content {
-    flex-wrap: wrap;
-    justify-content: space-between;
-    position: relative;
-    width: 1200px;
-    margin: 40px auto;
-    margin-top: -80px;
-    padding: 20px 40px;
-    background-color: #fff;
-    section {
-      flex: 0 0 48%;
-      margin: 20px 0;
-      .hd {
-        height: 40px;
-        line-height: 40px;
-        background-image: url(../common/images/home_hd_bg.png);
-        span {
-          float: left;
-          margin-left: 20px;
-          font-size: $font-size-lg;
-          color: #fff;
-        }
-        em {
-          float: right;
-        }
-      }
-      .bd {
-        padding: 20px 0;
-      }
-    }
-  }
-}
+
 </style>
