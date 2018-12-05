@@ -3,7 +3,7 @@
     <div class="details">
       <div class="navBar"><span>首页</span> > <span>申报通知</span></div>
       <div class="content-box">
-        <div class="title">{{ $common.html_decode(results.zczt) }}</div>
+        <div class="title">{{ reset_Zczt }}</div>
         <div class="msg-box">
           <div class="label">标签：
             <span 
@@ -44,7 +44,8 @@ export default {
   data: function() {
     return {
       results: [],
-      bdlists: []
+      bdlists: [],
+      reset_Zczt: ''
     }
   },
   computed: {
@@ -60,6 +61,7 @@ export default {
     }).then((res) => {
       this.results = res.data.body.data
       this.bdlists = res.data.body.bqList
+      this.reset_Zczt = this.$common.html_decode(this.results.zczt)
     })
   },
   mounted: function(){

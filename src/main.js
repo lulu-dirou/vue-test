@@ -12,8 +12,10 @@ import Url from './api/url.js' //axios,导入封装好的url对象
 import Common from './common/js/common.js' //导入公用方法
 
 
+
 // CSS
 import './sass/base.scss' //引用scss,全局变量文件mixin需要在vue.config.js配置
+import 'swiper/dist/css/swiper.css';
 
 
 // 组件

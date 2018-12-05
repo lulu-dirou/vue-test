@@ -53,4 +53,8 @@
     //用法  import引入依赖包，不需要相对路径，自己写的js文件则需要相对路径
 
 
+#   cnpm install --save-dev swiper@3.4.2
+    //安装swiper(swiper4目前不兼容IE)
+
+
              

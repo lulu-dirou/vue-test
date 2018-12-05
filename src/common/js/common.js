@@ -1,4 +1,5 @@
 export default {
+  api_baseUrl: 'http://183.237.175.100:3333',
   // 特殊符号(转出)
   html_encode: function(str){
     var s = ''

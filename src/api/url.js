@@ -1,22 +1,22 @@
 export default {
   qyzcxx: {
-    getQyxxzl: '/qyfwpt/xtgl/GeFQyxxzl/getQyxxzl', //企业详细信息
-    login: '/qyfwpt/xtgl/geQyzcxx/login', //用户登录
-    getQytx: '/qyfwpt/xtgl/geQyzcxx/getQytx' //获取企业头像
+    getQyxxzl: '/GEService/qyfwpt/xtgl/GeFQyxxzl/getQyxxzl', //企业详细信息
+    login: '/GEService/qyfwpt/xtgl/geQyzcxx/login', //用户登录
+    getQytx: '/GEService/qyfwpt/xtgl/geQyzcxx/getQytx' //获取企业头像
   },
   zcfw: {
-    getZcfw: '/qyfwpt/zcfw/getZcfw', // 获取政策服务明细
-    listZcfw: '/qyfwpt/zcfw/listZcfw', // 最新政策列表
-    listZcfwSearch: '/qyfwpt/zcfw/searchZcfw', // 最新政策搜索
-    listZcjd: '/qyfwpt/zcfw/listZcjd', // 文字解读（直播解读）
-    listDmjd: '/qyfwpt/zcfw/listDmjd', // 动漫解读（直播解读）
-    getZbDetail: 'qyfwpt/zcfw/getZbDetail', // 直播解读明细
+    getZcfw: '/GEService/qyfwpt/zcfw/getZcfw', // 获取政策服务明细
+    listZcfw: '/GEService/qyfwpt/zcfw/listZcfw', // 最新政策列表
+    listZcfwSearch: '/GEService/qyfwpt/zcfw/searchZcfw', // 最新政策搜索
+    listZcjd: '/GEService/qyfwpt/zcfw/listZcjd', // 文字解读（直播解读）
+    listDmjd: '/GEService/qyfwpt/zcfw/listDmjd', // 动漫解读（直播解读）
+    getZbDetail: '/GEService/qyfwpt/zcfw/getZbDetail', // 直播解读明细
   },
   sbfw: {
-    sbzt: '/sbfw/sbfw/sbzt', //申报专题
-    sbtz: '/sbfw/sbfw/sbtz', //申报通知
+    sbzt: '/GEService/sbfw/sbfw/sbzt', //申报专题
+    sbtz: '/GEService/sbfw/sbfw/sbtz', //申报通知
   },
   qyhdgl: {
-    listQyhd: '/qyfwpt/qyhd/listQyhd' //最新企业活动列表(政企头条)
+    listQyhd: '/GEService/qyfwpt/qyhd/listQyhd' //最新企业活动列表(政企头条)
   }
 }
