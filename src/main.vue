@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div class="main flex">
     <base-loading></base-loading>
     <the-head></the-head>
     <the-menu></the-menu>
@@ -38,8 +38,12 @@ export default {
 
 <style lang="scss" scoped>
 .main {
+  flex-direction: column;
   min-width: 1200px;
+  height: 100%;
   .theContent {
+    flex: auto;
+    -webkit-flex: 100%;
     background-color: #f2f4f5;
   }
 }

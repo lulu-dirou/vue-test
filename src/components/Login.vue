@@ -69,7 +69,7 @@ export default {
       },'arraybuffer').then((res) => {
         //图片流转码
         var src = 'data:image/png;base64,'+ btoa(new Uint8Array(res.data).reduce((data, byte) => data + String.fromCharCode(byte), ''));
-        this.$store.commit('getUserImg', src);
+        this.$store.commit('getUserImg', src)
       })
     }
   }

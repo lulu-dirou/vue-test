@@ -10,7 +10,7 @@
           <div class="msg-box">
             <div class="title">{{ $common.html_decode(list.zczt) }}</div>
             <div class="label">
-              <span v-for="bq in bqs(index)">{{ bq }}，</span>
+              <span v-for="bq in bqs(index)" v-bind:key="bq.id">{{ bq }}，</span>
             </div>
           </div>
         </router-link>

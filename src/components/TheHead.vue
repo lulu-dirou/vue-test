@@ -6,7 +6,7 @@
       </div>
       <div class="user flex-middle" v-if="showMsg">
         <button class="btn btn-lg dl" v-on:click="ModelCtr">登录</button>
-        <button class="btn btn-lg zc">注册</button>
+        <button class="btn btn-lg zc" v-on:click="ModelReg">注册</button>
       </div>
       <div class="user flex-middle" v-if="showMsged">
         <span class="img"><img v-bind:src="this.$store.state.xLogin.userImg"></span>
@@ -59,6 +59,9 @@ export default {
       }else{
         this.loginShow = true;
       }
+    },
+    ModelReg: function(){
+      this.$router.push({path:'/member/reg'})
     },
     logouted: function(){
       this.$store.commit('logout');

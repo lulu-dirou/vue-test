@@ -17,6 +17,8 @@ import Policy from "../views/policy/policy.vue";
   import Article from "../views/policy/article";
 import Message from "../views/message/message.vue";
 import Member from "../views/member/member.vue";
+  import Reg from "../views/member/reg.vue";
+  import Login from "../views/member/login.vue";
   import BaseMsg from "../views/member/baseMsg.vue";
   import Push from "../views/member/push.vue";
   import Fav from "../views/member/fav.vue";
@@ -93,6 +95,14 @@ const instance = new VueRouter({
           meta: { requireAuth: true }
         }
       ]
+    },
+    {
+      path: "/member/reg",
+      component: Reg
+    },
+    {
+      path: "/member/login",
+      component: Login
     },
     {
       path: "/",//重定向，默认显示

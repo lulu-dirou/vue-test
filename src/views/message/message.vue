@@ -4,6 +4,7 @@
     <button @click="clickBtn">点击</button>
     <button @click="clickBtnBack">再点击</button>
     <vuex-child></vuex-child>
+    <h1 v-on:mouseover="events">11111111111</h1>
   </div>
 </template>
 
@@ -23,6 +24,9 @@ export default {
     },
     clickBtnBack(){
       
+    },
+    events: function(event){
+      console.log(event)
     }
   },
   components: {
