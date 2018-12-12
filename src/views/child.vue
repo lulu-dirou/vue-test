@@ -1,11 +1,11 @@
 <template>
-  <div class="child">
-    <div class="search-box">
-      <div class="search-mid flex">
+  <div class="child clear">
+    <header>
+      <div class="header-box">
         <the-search class="serch"></the-search>
       </div>
-    </div>
-    <div class="content flex">
+    </header>
+    <article class="flex">
       <div class="left">
         <div class="navigation">
           <ul>
@@ -23,7 +23,7 @@
         <list-zcdmjd v-if="num===2?'true':''" class="list-4-child" :thePageShow="true"></list-zcdmjd>
         <list-zczb v-if="num===3?'true':''" class="list-4-child" :thePageShow="true"></list-zczb>
       </div>
-    </div>
+    </article>
   </div>
 </template>
 
@@ -72,73 +72,5 @@ export default {
 
 
 <style lang="scss">
-.child {
-  background: url(../common/images/child-full-bg.png) center 0 no-repeat;
-  position: relative;
-  .search-box {
-    width: 100%;
-    .search-mid {
-      position: relative;
-      width: 1200px;
-      height: 250px;
-      margin: 0 auto;
-      .serch {
-        position: absolute;
-        right: 0;
-        top: 70px;
-      }
-    }
-  }
-  .content {
-    flex-wrap: wrap;
-    justify-content: space-between;
-    position: relative;
-    width: 1200px;
-    margin: 40px auto;
-    margin-top: -40px;
-    background-color: #fff;
-    .left {
-      flex: 0 0 300px;
-      padding: 20px;
-      border-right: 1px solid #e1e1e1;
-      @include theme_bd(neutral-border);
-      .navigation {
-        li {
-          position: relative;
-          height: 40px;
-          line-height: 40px;
-          padding-left: 20px;
-          margin-bottom: 10px;
-          font-size: $font-size-dfx;
-          background-color: #f2f4f6;
-          cursor: pointer;
-          @include transition(0.1s);
-          @include theme_font(neutral-content);
-          &:hover {
-            color: #fff;
-            @include theme_bg(primary);
-          }
-          &.active {
-            @include theme_font(primary);
-            @include theme_bg(primary,0.1);
-            &:after {
-              position: absolute;
-              left: 0;
-              top: 0;
-              width: 5px;
-              height: 100%;
-              content: '';
-              @include theme_bg(primary);
-            }
-          }
-        }
-      }
-    }
-    .right {
-      flex: 1;
-      padding: 40px;
-      min-height: 500px;
-    }
-  }
-}
+
 </style>

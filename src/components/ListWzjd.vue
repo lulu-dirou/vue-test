@@ -1,21 +1,18 @@
 <template>
-  <div class="listZxzc">
-    <ul class="list-1">
-      <li v-for="(list,index) in filterLists" :key="list.id">
-        <router-link v-bind:to="{path:'/policy/details',query:{id:list.id}}">
-          <div class="dot-box flex-middle">
-            <span class="pt">{{ list.zcly }}</span>
-            <span class="time">{{ timeReset(index) }}</span>
-          </div>
-          <div class="msg-box">
-            <div class="title">{{ $common.html_decode(list.zczt) }}</div>
-            <div class="label">
-              <span v-for="bq in bqs(index)" v-bind:key="bq.id">{{ bq }}，</span>
-            </div>
-          </div>
-        </router-link>
-      </li>
-    </ul>
+  <div class="listWzjd">
+    <table class="list-1-table tc tc-f tc-bb tc-pdt10 tc-pdl10 tc-sd-x">
+      <tbody>
+        <tr v-for="list in filterLists" :key="list.id">
+          <td class="dot"><span></span></td>
+          <td class="title" :title="$common.html_decode(list.jdmc)">
+            <router-link :to="{path:'/policy/details_wz',query:{id:list.id}}">
+            <span>{{ $common.html_decode(list.jdmc) }}</span>
+            </router-link>
+          </td>
+          <td class="time">{{ $common.time_slice(list.fbsj) }}</td>
+        </tr>
+      </tbody>
+    </table>
     <div v-if="noData">{{ noDataMsg }}</div>
     <the-page
       :total="listTotal"
@@ -52,24 +49,18 @@ export default {
     }
   },
   methods: {
-    getApi: function() {
-      this.$http.post(this.$url.zcfw.listZcfw,{
+    getApi: function(){
+      this.$http.post(this.$url.zcfw.listZcjd,{
         pageSize: this.listPageSize,
         pageNo: this.listPageNo
       }).then((res) => {
         this.lists = res.data.body.list
       })
     },
-    timeReset: function(val){
-      return this.lists[val].fbsj.slice(0,10)
-    },
     listPageChange: function(val) {
       this.listPageNo = val
       this.getApi();
     },
-    bqs: function(val){
-      return this.lists[val].zcbqname.split(',')
-    }
   },
   created: function(){
     this.getApi();
@@ -78,7 +69,5 @@ export default {
 </script>
 
 
-<style lang="scss" scoped>
-.listZxzc {
-}
+<style lang="scss">
 </style>

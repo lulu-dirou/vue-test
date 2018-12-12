@@ -2,7 +2,7 @@
   <div class="listQyhd">
     <ul class="list-3">
       <li v-for="(list,index) in filterLists" :key="list.id">
-        <router-link class="flex-middle" v-bind:to="{path:'/policy/article',query:{id:list.id}}">
+        <router-link class="flex-middle" v-bind:to="{path:'/policy/details',query:{id:list.id}}">
           <div class="msg-box flex-middle">
             <span class="label">【{{ list.hdlx }}】</span>
             <span class="title">{{ $common.html_decode(list.hdmc) }}</span>

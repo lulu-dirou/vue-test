@@ -12,7 +12,7 @@
           </div>
           <div class="state flex-middle">
             <div class="title-max">
-              <span class="pt">发布平台：<em>{{ results.zcly }}</em></span>
+              <span class="pt">政策来源：<em>{{ results.zcly }}</em></span>
               <span class="time">发布时间：{{ results.fbsj }}</span>
             </div>
             <div class="sc"><button class="btn">☆ 收藏</button></div>

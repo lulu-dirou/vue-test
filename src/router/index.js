@@ -13,8 +13,15 @@ import Home from "../views/home.vue";
   import Child from "../views/child.vue";
 import Appeal from "../views/appeal/appeal.vue";
 import Declare from "../views/declare/declare.vue";
+  import DeclareDetailsSb from "../views/declare/details_sb";
 import Policy from "../views/policy/policy.vue";
-  import Article from "../views/policy/article";
+  import PolicyDetails from "../views/policy/details";
+  import PolicyDetailsDm from "../views/policy/details_dm";
+  import PolicyDetailsWz from "../views/policy/details_wz";
+  import Zchb from "../views/policy/zchb";
+  import Sbzc from "../views/policy/sbzc";
+  import Zcjd from "../views/policy/zcjd";
+  import Zcdy from "../views/policy/zcdy";
 import Message from "../views/message/message.vue";
 import Member from "../views/member/member.vue";
   import Reg from "../views/member/reg.vue";
@@ -47,13 +54,47 @@ const instance = new VueRouter({
       component: Declare
     },
     {
-      path: "/policy",
-      component: Policy,
-      //meta: { requireAuth: true }, //添加该字段，表示进入这个路由是需要登录的
+      path: "/declare/details_sb",
+      component: DeclareDetailsSb
     },
     {
-      path: "/policy/article",
-      component: Article
+      path: "/policy",
+      component: Policy,
+      children: [
+        {
+          path: "/policy/zchb",
+          component: Zchb
+        },
+        {
+          path: "/policy/sbzc",
+          component: Sbzc
+        },
+        {
+          path: "/policy/zcjd",
+          component: Zcjd,
+        },
+        {
+          path: "/policy/zcdy",
+          component: Zcdy,
+          meta: { requireAuth: true }
+        },
+        {
+          path: "/",//重定向，默认显示
+          redirect: "/policy/zchb"
+        }
+      ]
+    },
+    {
+      path: "/policy/details",
+      component: PolicyDetails
+    },
+    {
+      path: "/policy/details_dm",
+      component: PolicyDetailsDm
+    },
+    {
+      path: "/policy/details_wz",
+      component: PolicyDetailsWz
     },
     {
       path: "/message",
@@ -122,7 +163,7 @@ instance.beforeEach(
       } else {
         alert('该页面需要登陆')
         next({
-          path: '/home',
+          path: '/member/reg',
           query: {redirect: to.fullPath} // 将跳转的路由path作为参数，登录成功后跳转到该路由
         })
       }

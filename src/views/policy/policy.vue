@@ -1,45 +1,42 @@
 <template>
-  <div class="policy pages">
-    <header>
-      <div class="box flex-middle">
-        <h1>政策服务<span>@this:主要负责介绍政策相关服务内容</span></h1>
-        <div class="search flex">
-          <input type="text" v-model="keyword"/>
-          <button type="button" @click="mySearch(keyword)">搜...索</button>
-        </div>
-      </div>
-    </header>
+  <div class="child policy clear">
+    <nav>
+      <ul class="flex-middle">
+        <li><router-link to="/policy/zchb">政策汇编</router-link></li>
+        <li><router-link to="/policy/sbzc">申报政策</router-link></li>
+        <li><router-link to="/policy/zcjd">政策解读</router-link></li>
+        <li><router-link to="/policy/zcdy">政策订阅</router-link></li>
+      </ul>
+    </nav>
     <section>
-      <list-zcfw :listKeyWord='postkeyword'></list-zcfw>
+      <router-view></router-view>
     </section>
   </div>
 </template>
 
 
-
-
 <script>
-import ListZcfw from '../../components/ListZcfw.vue'
-
 export default {
   components: {
-    ListZcfw
   },
-  data() {
+  props: {
+  },
+  data: function() {
     return {
-      keyword: '',
-      postkeyword: ''
     }
+  },
+  computed: {
+  },
+  watch: {
   },
   methods: {
-    mySearch(val) {
-      this.postkeyword = val;
-    }
+  },
+  created: function(){
+  },
+  mounted: function(){
   }
 }
 </script>
-
-
 
 
 <style lang="scss" scoped>

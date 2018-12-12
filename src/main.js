@@ -15,7 +15,9 @@ import Common from './common/js/common.js' //导入公用方法
 
 // CSS
 import './sass/base.scss' //引用scss,全局变量文件mixin需要在vue.config.js配置
-import 'swiper/dist/css/swiper.css';
+import './sass/table.scss' 
+import './common/iconfont/iconfont.css'
+import 'swiper/dist/css/swiper.css'
 
 
 // 组件
