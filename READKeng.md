@@ -1,3 +1,11 @@
+#   cnpm install -g @vue/cli
+    //安装cl3脚手架
+
+
+#   vue create my-project
+    //创建文件夹 (vue ui)
+
+
 #   cnpm install babel-polyfill --save
     //转码支持ES6,为当前环境提供垫片
 
